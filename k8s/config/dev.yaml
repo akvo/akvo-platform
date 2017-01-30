@@ -5,3 +5,4 @@ metadata:
   namespace: default
 data:
   keycloak.url: https://kc.akvotest.org/auth
+  email.host: mail.akvo.org
