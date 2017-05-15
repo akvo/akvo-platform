@@ -6,3 +6,4 @@ metadata:
 data:
   keycloak.url: https://kc.akvotest.org/auth
   email.host: mail.akvo.org
+  flow.api.root: https://api.akvotest.org/flow
