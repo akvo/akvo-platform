@@ -10,6 +10,7 @@ fi
 
 cd k8s/keycloak-ha-mysql
 
-IMAGE_NAME="akvo/keycloak-ha-mysql:${TRAVIS_COMMIT}"
+TAG=$(echo -n "${TRAVIS_COMMIT}" | cut -c-8)
+IMAGE_NAME="akvo/keycloak-ha-mysql:${TAG}"
 
 docker build -t "${DOCKER_IMAGE_NAME:=$IMAGE_NAME}" .
