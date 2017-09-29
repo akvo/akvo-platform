@@ -5,7 +5,7 @@
 
 set -eu
 
-PROJECT_NAME=$1
+PROJECT_NAME=figurethink
 DB_NAME=$PROJECT_NAME-db
 
 echo "creating project"
@@ -40,6 +40,8 @@ metadata:
   name: keycloak
 type: Opaque
 data:
+  keycloak_user: $(printf "admin" | base64)
+  keycloak_password: $(printf "passwd" | base64)
   mysql_password: $(printf "passwd" | base64)
   mysql_instance: $(printf "$PROJECT_NAME:europe-west1:$DB_NAME=tcp:3306" | base64)
 EOF
@@ -53,7 +55,24 @@ kubectl create secret generic cloudsql-instance-credentials --from-file=credenti
 
 rm credentials.json
 
-kubectl apply -f deployment.yaml
+cat <<EOF > add-kc-user
+        - name: KEYCLOAK_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: keycloak_user
+        - name: KEYCLOAK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak
+              key: keycloak_password
+EOF
+
+sed '/key: mysql_password/r add-kc-user' deployment.yaml > deployment-with-kc-user.yaml
+
+kubectl apply -f deployment-with-kc-user.yaml
+
+rm add-kc-user deployment-with-kc-user.yaml
 
 kubectl expose deployment keycloak --type="LoadBalancer"
 
