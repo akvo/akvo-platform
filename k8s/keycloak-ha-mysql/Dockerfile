@@ -10,11 +10,9 @@ ADD docker-entrypoint.sh ${JB_HOME}
 ADD themes/akvo/ ${KC_HOME}/themes/akvo/
 ADD keycloak_configuration.txt ${KC_HOME}
 
-RUN ${KC_HOME}/bin/jboss-cli.sh --file=${KC_HOME}/keycloak_configuration.txt
-
-RUN rm -rf ${KC_HOME}/standalone/configuration/standalone_xml_history/current/*
-
-RUN mkdir -p ${KC_HOME}/modules/system/layers/base/com/mysql/jdbc/main; \
+RUN ${KC_HOME}/bin/jboss-cli.sh --file=${KC_HOME}/keycloak_configuration.txt && \
+    rm -rf ${KC_HOME}/standalone/configuration/standalone_xml_history/current/* && \
+    mkdir -p ${KC_HOME}/modules/system/layers/base/com/mysql/jdbc/main; \
     cd ${KC_HOME}/modules/system/layers/base/com/mysql/jdbc/main && \
     curl -O http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar
 
