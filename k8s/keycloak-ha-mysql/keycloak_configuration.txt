@@ -29,6 +29,7 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /subsystem=jgroups/stack=udp/protocol=UNICAST3:add()
 /subsystem=jgroups/stack=udp/protocol=pbcast.STABLE:add()
 /subsystem=jgroups/stack=udp/protocol=pbcast.GMS:add()
+/subsystem=jgroups/stack=udp/protocol=pbcast.GMS/property=join_timeout:add(value=3000)
 /subsystem=jgroups/stack=udp/protocol=UFC:add()
 /subsystem=jgroups/stack=udp/protocol=MFC:add()
 /subsystem=jgroups/stack=udp/protocol=FRAG2:add()
@@ -48,6 +49,7 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /subsystem=jgroups/stack=tcp/protocol=UNICAST3:add()
 /subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add()
 /subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add()
+/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS/property=join_timeout:add(value=3000)
 /subsystem=jgroups/stack=tcp/protocol=MFC:add()
 /subsystem=jgroups/stack=tcp/protocol=FRAG2:add()
 
