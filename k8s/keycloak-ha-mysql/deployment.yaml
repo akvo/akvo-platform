@@ -14,8 +14,12 @@ spec:
         image: akvo/keycloak-ha-mysql:52ef8389
         imagePullPolicy: Always
         resources:
+          requests:
+            memory: "650m"
+            cpu: "50m"
           limits:
             memory: "1G"
+            cpu: "1000m"
         ports:
         - containerPort: 8080
         readinessProbe:
