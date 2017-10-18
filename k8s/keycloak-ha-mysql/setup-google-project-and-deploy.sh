@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 ## Creating a new Google Cloud Container project and deploys Keycloak to it
-## Pass
+## First parameter should be the Google project name
 
 set -eu
 
-PROJECT_NAME=figurethink
+PROJECT_NAME=$1
 DB_NAME=$PROJECT_NAME-db
 
 echo "creating project"
