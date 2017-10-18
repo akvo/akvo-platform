@@ -27,7 +27,7 @@ gcloud service-management enable sqladmin.googleapis.com
 gcloud container clusters create $PROJECT_NAME-cluster --machine-type=g1-small --num-nodes=1 --scopes=https://www.googleapis.com/auth/cloud-platform
 
 gcloud sql instances create $DB_NAME --activation-policy=ALWAYS --no-storage-auto-increase --backup --storage-type=HDD --storage-size=10GB --tier=db-f1-micro --gce-zone=europe-west1-d --database-version=MYSQL_5_6 --region europe-west1
-# --enable-bin-log --backup
+# maybe you want also --enable-bin-log --backup
 
 gcloud sql users create keycloak % -i $DB_NAME --password passwd
 
