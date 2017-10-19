@@ -13,19 +13,79 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="nonce" elementType="Argument">
-            <stringProp name="Argument.name">nonce</stringProp>
-            <stringProp name="Argument.value">${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(12,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}</stringProp>
+          <elementProp name="lumen-server-name" elementType="Argument">
+            <stringProp name="Argument.name">lumen-server-name</stringProp>
+            <stringProp name="Argument.value">lumen.akvotest.org</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="state" elementType="Argument">
-            <stringProp name="Argument.name">state</stringProp>
-            <stringProp name="Argument.value">${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(12,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}</stringProp>
+          <elementProp name="lumen-server-port" elementType="Argument">
+            <stringProp name="Argument.name">lumen-server-port</stringProp>
+            <stringProp name="Argument.value">443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="code" elementType="Argument">
-            <stringProp name="Argument.name">code</stringProp>
-            <stringProp name="Argument.value">${__RandomString(43,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}.${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(12,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}</stringProp>
+          <elementProp name="kc-server-name" elementType="Argument">
+            <stringProp name="Argument.name">kc-server-name</stringProp>
+            <stringProp name="Argument.value">kc.akvotest.org</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="kc-server-port" elementType="Argument">
+            <stringProp name="Argument.name">kc-server-port</stringProp>
+            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="server-protocol" elementType="Argument">
+            <stringProp name="Argument.name">server-protocol</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="number-users" elementType="Argument">
+            <stringProp name="Argument.name">number-users</stringProp>
+            <stringProp name="Argument.value">3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="number-urls" elementType="Argument">
+            <stringProp name="Argument.name">number-urls</stringProp>
+            <stringProp name="Argument.value">3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="username" elementType="Argument">
+            <stringProp name="Argument.name">username</stringProp>
+            <stringProp name="Argument.value">ivan%40akvo.org</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">akvo123</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="url1" elementType="Argument">
+            <stringProp name="Argument.name">url1</stringProp>
+            <stringProp name="Argument.value">https://github.com/lawlesst/vivo-sample-data/raw/master/data/csv/people.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="url2" elementType="Argument">
+            <stringProp name="Argument.name">url2</stringProp>
+            <stringProp name="Argument.value">https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-players.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="url3" elementType="Argument">
+            <stringProp name="Argument.name">url3</stringProp>
+            <stringProp name="Argument.value">https://raw.githubusercontent.com/llimllib/soccerdata/master/data/cl_13_14.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="column1" elementType="Argument">
+            <stringProp name="Argument.name">column1</stringProp>
+            <stringProp name="Argument.value">9</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="column2" elementType="Argument">
+            <stringProp name="Argument.name">column2</stringProp>
+            <stringProp name="Argument.value">3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="column3" elementType="Argument">
+            <stringProp name="Argument.name">column3</stringProp>
+            <stringProp name="Argument.value">6</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -56,13 +116,14 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${number-users}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">3</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
@@ -72,6 +133,30 @@
         <hashTree>
           <RecordingController guiclass="RecordController" testclass="RecordingController" testname="LumenTest" enabled="true"/>
           <hashTree>
+            <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="state" elementType="Argument">
+                  <stringProp name="Argument.name">state</stringProp>
+                  <stringProp name="Argument.value">${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(12,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="nonce" elementType="Argument">
+                  <stringProp name="Argument.name">nonce</stringProp>
+                  <stringProp name="Argument.value">${__RandomString(8,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(4,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}-${__RandomString(12,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789)}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </Arguments>
+            <hashTree/>
+            <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="URL number" enabled="true">
+              <stringProp name="maximumValue">3</stringProp>
+              <stringProp name="minimumValue">1</stringProp>
+              <stringProp name="outputFormat"></stringProp>
+              <boolProp name="perThread">true</boolProp>
+              <stringProp name="randomSeed"></stringProp>
+              <stringProp name="variableName">url-number</stringProp>
+            </RandomVariableConfig>
+            <hashTree/>
             <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. LoginLumen" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">false</boolProp>
@@ -81,9 +166,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -126,9 +211,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/env</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -145,7 +230,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -153,7 +238,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -184,7 +269,7 @@
                     <elementProp name="redirect_uri" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">redirect_uri</stringProp>
-                      <stringProp name="Argument.value">https%3A%2F%2Flumen.akvotest.org%2F</stringProp>
+                      <stringProp name="Argument.value">${server-protocol}%3A%2F%2F${lumen-server-name}%2F</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -225,9 +310,9 @@
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">kc.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${kc-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${kc-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/auth/realms/akvo/protocol/openid-connect/auth</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -244,7 +329,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -291,14 +376,14 @@
                     <elementProp name="username" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">username</stringProp>
-                      <stringProp name="Argument.value">ivan%40akvo.org</stringProp>
+                      <stringProp name="Argument.value">${username}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="password" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">password</stringProp>
-                      <stringProp name="Argument.value">akvo123</stringProp>
+                      <stringProp name="Argument.value">${password}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -311,9 +396,9 @@
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">kc.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${kc-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${kc-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">${login-path}</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -331,7 +416,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://kc.akvotest.org/auth/realms/akvo/protocol/openid-connect/auth?client_id=akvo-lumen&amp;redirect_uri=https%3A%2F%2Flumen.akvotest.org%2F&amp;state=${state}&amp;nonce=${nonce}c&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${kc-server-name}/auth/realms/akvo/protocol/openid-connect/auth?client_id=akvo-lumen&amp;redirect_uri=${server-protocol}%3A%2F%2F${lumen-server-name}%2F&amp;state=${state}&amp;nonce=${nonce}c&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -386,9 +471,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                 <stringProp name="HTTPSampler.path">/env</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -405,7 +490,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -413,7 +498,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -458,15 +543,15 @@
                     <elementProp name="redirect_uri" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">redirect_uri</stringProp>
-                      <stringProp name="Argument.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Argument.value">${server-protocol}://${lumen-server-name}/</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">kc.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${kc-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${kc-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/auth/realms/akvo/protocol/openid-connect/token</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -483,7 +568,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -491,7 +576,7 @@
                     </elementProp>
                     <elementProp name="Origin" elementType="Header">
                       <stringProp name="Header.name">Origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Content-type" elementType="Header">
                       <stringProp name="Header.name">Content-type</stringProp>
@@ -534,9 +619,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">kc.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${kc-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${kc-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/auth/realms/akvo/account</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -553,7 +638,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -561,7 +646,7 @@
                     </elementProp>
                     <elementProp name="Origin" elementType="Header">
                       <stringProp name="Header.name">Origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -595,9 +680,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/library</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -614,7 +699,7 @@
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -622,7 +707,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -648,7 +733,7 @@
             <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
               <collectionProp name="AuthManager.auth_list">
                 <elementProp name="" elementType="Authorization">
-                  <stringProp name="Authorization.url">https://kc.akvotest.org/auth/realms/akvo/account</stringProp>
+                  <stringProp name="Authorization.url">${server-protocol}://${kc-server-name}/auth/realms/akvo/account</stringProp>
                   <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
                   <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
                   <stringProp name="Authorization.domain"></stringProp>
@@ -669,14 +754,14 @@
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;source&quot;:{&quot;kind&quot;:&quot;LINK&quot;,&quot;url&quot;:&quot;https://github.com/lawlesst/vivo-sample-data/raw/master/data/csv/people.csv&quot;,&quot;hasColumnHeaders&quot;:true,&quot;guessColumnTypes&quot;:true},&quot;name&quot;:&quot;New Dataset&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;source&quot;:{&quot;kind&quot;:&quot;LINK&quot;,&quot;url&quot;:&quot;${__evalVar(url${url-number})}&quot;,&quot;hasColumnHeaders&quot;:true,&quot;guessColumnTypes&quot;:true},&quot;name&quot;:&quot;JMeter Dataset ${__threadNum}&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/datasets</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -697,7 +782,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -705,7 +790,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="content-type" elementType="Header">
                       <stringProp name="Header.name">content-type</stringProp>
@@ -740,9 +825,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/job_executions/${dataset-id}</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -763,7 +848,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -771,7 +856,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -789,7 +874,7 @@
                 </HeaderManager>
                 <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1000</stringProp>
+                  <stringProp name="ConstantTimer.delay">3000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Dataset Id Extractor" enabled="true">
@@ -806,9 +891,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                 <stringProp name="HTTPSampler.path">/api/job_executions/${dataset-id}</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -829,7 +914,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -837,7 +922,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -859,9 +944,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                 <stringProp name="HTTPSampler.path">/api/job_executions/${dataset-id}</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -882,7 +967,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -890,7 +975,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -919,9 +1004,9 @@
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/datasets/${dataset-id2}</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -942,7 +1027,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -950,7 +1035,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -986,9 +1071,9 @@
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/aggregation/${dataset-id2}/pivot</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1009,7 +1094,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/visualisation/create</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/visualisation/create</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1017,7 +1102,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -1041,15 +1126,15 @@
                     <elementProp name="query" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">query</stringProp>
-                      <stringProp name="Argument.value">{&quot;version&quot;:1,&quot;filters&quot;:[],&quot;aggregation&quot;:&quot;count&quot;,&quot;valueColumn&quot;:null,&quot;categoryColumn&quot;:&quot;c9&quot;,&quot;categoryTitle&quot;:null,&quot;rowColumn&quot;:null,&quot;rowTitle&quot;:null,&quot;decimalPlaces&quot;:3,&quot;valueDisplay&quot;:&quot;default&quot;,&quot;hideRowTotals&quot;:false,&quot;hideColumnTotals&quot;:false}</stringProp>
+                      <stringProp name="Argument.value">{&quot;version&quot;:1,&quot;filters&quot;:[],&quot;aggregation&quot;:&quot;count&quot;,&quot;valueColumn&quot;:null,&quot;categoryColumn&quot;:&quot;c${__evalVar(column${url-number})}&quot;,&quot;categoryTitle&quot;:null,&quot;rowColumn&quot;:null,&quot;rowTitle&quot;:null,&quot;decimalPlaces&quot;:3,&quot;valueDisplay&quot;:&quot;default&quot;,&quot;hideRowTotals&quot;:false,&quot;hideColumnTotals&quot;:false}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                 <stringProp name="HTTPSampler.path">/api/aggregation/${dataset-id2}/pivot</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1070,7 +1155,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/visualisation/create</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/visualisation/create</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1078,7 +1163,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -1102,14 +1187,14 @@
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;type&quot;:&quot;visualisation&quot;,&quot;name&quot;:&quot;New visualisation&quot;,&quot;visualisationType&quot;:&quot;pivot table&quot;,&quot;datasetId&quot;:&quot;${dataset-id2}&quot;,&quot;spec&quot;:{&quot;version&quot;:1,&quot;filters&quot;:[],&quot;aggregation&quot;:&quot;count&quot;,&quot;valueColumn&quot;:null,&quot;categoryColumn&quot;:&quot;c9&quot;,&quot;categoryTitle&quot;:null,&quot;rowColumn&quot;:null,&quot;rowTitle&quot;:null,&quot;decimalPlaces&quot;:3,&quot;valueDisplay&quot;:&quot;default&quot;,&quot;hideRowTotals&quot;:false,&quot;hideColumnTotals&quot;:false}}</stringProp>
+                      <stringProp name="Argument.value">{&quot;type&quot;:&quot;visualisation&quot;,&quot;name&quot;:&quot;JMeter visualisation ${__threadNum}&quot;,&quot;visualisationType&quot;:&quot;pivot table&quot;,&quot;datasetId&quot;:&quot;${dataset-id2}&quot;,&quot;spec&quot;:{&quot;version&quot;:1,&quot;filters&quot;:[],&quot;aggregation&quot;:&quot;count&quot;,&quot;valueColumn&quot;:null,&quot;categoryColumn&quot;:&quot;c${__evalVar(column${url-number})}&quot;,&quot;categoryTitle&quot;:null,&quot;rowColumn&quot;:null,&quot;rowTitle&quot;:null,&quot;decimalPlaces&quot;:3,&quot;valueDisplay&quot;:&quot;default&quot;,&quot;hideRowTotals&quot;:false,&quot;hideColumnTotals&quot;:false}}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/visualisations</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1130,7 +1215,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/visualisation/create</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/visualisation/create</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1138,7 +1223,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="content-type" elementType="Header">
                       <stringProp name="Header.name">content-type</stringProp>
@@ -1173,9 +1258,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/library</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1196,7 +1281,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1204,7 +1289,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -1234,15 +1319,15 @@
                     <elementProp name="query" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">query</stringProp>
-                      <stringProp name="Argument.value">%7B%22hideColumnTotals%22%3Afalse%2C%22rowColumn%22%3Anull%2C%22decimalPlaces%22%3A3%2C%22hideRowTotals%22%3Afalse%2C%22filters%22%3A%5B%5D%2C%22rowTitle%22%3Anull%2C%22aggregation%22%3A%22count%22%2C%22valueColumn%22%3Anull%2C%22version%22%3A1%2C%22valueDisplay%22%3A%22default%22%2C%22categoryColumn%22%3A%22c9%22%2C%22categoryTitle%22%3Anull%7D</stringProp>
+                      <stringProp name="Argument.value">%7B%22hideColumnTotals%22%3Afalse%2C%22rowColumn%22%3Anull%2C%22decimalPlaces%22%3A3%2C%22hideRowTotals%22%3Afalse%2C%22filters%22%3A%5B%5D%2C%22rowTitle%22%3Anull%2C%22aggregation%22%3A%22count%22%2C%22valueColumn%22%3Anull%2C%22version%22%3A1%2C%22valueDisplay%22%3A%22default%22%2C%22categoryColumn%22%3A%22c${__evalVar(column${url-number})}%22%2C%22categoryTitle%22%3Anull%7D</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/aggregation/${dataset-id2}/pivot</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1263,7 +1348,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/dashboard/create</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/dashboard/create</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1271,7 +1356,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -1295,14 +1380,14 @@
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;type&quot;:&quot;dashboard&quot;,&quot;title&quot;:&quot;New Dashboard&quot;,&quot;entities&quot;:{&quot;${v-id}&quot;:{&quot;type&quot;:&quot;visualisation&quot;,&quot;id&quot;:&quot;${v-id}&quot;}},&quot;layout&quot;:{&quot;${v-id}&quot;:{&quot;w&quot;:6,&quot;h&quot;:6,&quot;x&quot;:0,&quot;y&quot;:0,&quot;i&quot;:&quot;${v-id}&quot;,&quot;minW&quot;:4,&quot;minH&quot;:1,&quot;moved&quot;:false,&quot;static&quot;:false}},&quot;id&quot;:null,&quot;created&quot;:null,&quot;modified&quot;:null}</stringProp>
+                      <stringProp name="Argument.value">{&quot;type&quot;:&quot;dashboard&quot;,&quot;title&quot;:&quot;JMeter Dashboard ${__threadNum}&quot;,&quot;entities&quot;:{&quot;${v-id}&quot;:{&quot;type&quot;:&quot;visualisation&quot;,&quot;id&quot;:&quot;${v-id}&quot;}},&quot;layout&quot;:{&quot;${v-id}&quot;:{&quot;w&quot;:6,&quot;h&quot;:6,&quot;x&quot;:0,&quot;y&quot;:0,&quot;i&quot;:&quot;${v-id}&quot;,&quot;minW&quot;:4,&quot;minH&quot;:1,&quot;moved&quot;:false,&quot;static&quot;:false}},&quot;id&quot;:null,&quot;created&quot;:null,&quot;modified&quot;:null}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/dashboards</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1323,7 +1408,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/dashboard/create</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/dashboard/create</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1331,7 +1416,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="content-type" elementType="Header">
                       <stringProp name="Header.name">content-type</stringProp>
@@ -1357,9 +1442,9 @@
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
-                <stringProp name="HTTPSampler.domain">lumen.akvotest.org</stringProp>
-                <stringProp name="HTTPSampler.port">443</stringProp>
-                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.domain">${lumen-server-name}</stringProp>
+                <stringProp name="HTTPSampler.port">${lumen-server-port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${server-protocol}</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                 <stringProp name="HTTPSampler.path">/api/library</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -1380,7 +1465,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org/library</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}/library</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Language" elementType="Header">
                       <stringProp name="Header.name">Accept-Language</stringProp>
@@ -1388,7 +1473,7 @@
                     </elementProp>
                     <elementProp name="origin" elementType="Header">
                       <stringProp name="Header.name">origin</stringProp>
-                      <stringProp name="Header.value">https://lumen.akvotest.org</stringProp>
+                      <stringProp name="Header.value">${server-protocol}://${lumen-server-name}</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -1444,6 +1529,42 @@
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
       </hashTree>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
