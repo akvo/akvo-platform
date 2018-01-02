@@ -1,6 +1,13 @@
 apiVersion: v1
 data:
-  alerts: ""
+  alerts: |-
+      ALERT TooManyRestarts
+        IF increase(kube_pod_container_status_restarts[30m]) > 3
+        FOR 10m
+        ANNOTATIONS {
+          summary = "Pod {{ $labels.pod }} restarting too often",
+          description = "{{ $labels.pod }} of namespace {{ $labels.namespace }} has restarte d {{ $value }} in the last 30 mins.",
+        }
   prometheus.yml: |-
     rule_files:
       - /etc/config/rules
