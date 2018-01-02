@@ -8,6 +8,13 @@ data:
           summary = "Pod {{ $labels.pod }} restarting too often",
           description = "{{ $labels.pod }} of namespace {{ $labels.namespace }} has restarte d {{ $value }} in the last 30 mins.",
         }
+      ALERT FlowMapsWindshaftTooSlow
+        IF histogram_quantile(0.95, sum(rate(http_request_latency_seconds_bucket{path="tile",status="200"}[10m])) by (le,db,format)) > 0.5
+        FOR 10m
+        ANNOTATIONS {
+          summary = "Flow-Maps-Windshaft too slow",
+          description = "For DB {{ $labels.db }} and for request format {{ $labels.format }} the 95% response time has been {{ $value }} seconds during the last 10 minutes.",
+        }
   prometheus.yml: |-
     rule_files:
       - /etc/config/rules
