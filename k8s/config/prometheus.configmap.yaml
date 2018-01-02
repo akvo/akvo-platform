@@ -15,6 +15,13 @@ data:
           summary = "Flow-Maps-Windshaft too slow",
           description = "For DB {{ $labels.db }} and for request format {{ $labels.format }} the 95% response time has been {{ $value }} seconds during the last 10 minutes.",
         }
+      ALERT TooManyHttpErrors
+        IF sum(rate(http_request_latency_seconds_count{app="flow-maps", path=~"tile|/create-map", status="200"}[5m])) by (path) / sum(rate(http_request_latency_seconds_count{app="flow-maps", path=~"tile|/create-map"}[5m])) by (path) * 100 < 98
+        FOR 5m
+        ANNOTATIONS {
+          summary = "Too many HTTP errors in Flow Maps",
+          description = "The number of HTTP errors in Flow Maps is above 2% in the last 5 minutes for {{ $labels.path }}",
+        }
   prometheus.yml: |-
     rule_files:
       - /etc/config/rules
