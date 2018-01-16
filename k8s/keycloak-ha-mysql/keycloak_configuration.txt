@@ -3,6 +3,7 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /subsystem=logging/root-logger=ROOT:write-attribute(name=handlers,value=[CONSOLE])
 /subsystem=logging/logger=org.keycloack:add
 /subsystem=logging/logger=org.keycloack:write-attribute(name=level,value=${env.KEYCLOAK_LOGLEVEL:INFO})
+
 /subsystem=datasources/data-source=KeycloakDS: remove()
 /subsystem=datasources/data-source=KeycloakDS: add(jndi-name=java:jboss/datasources/KeycloakDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:mysql://${env.MYSQL_PORT_3306_TCP_ADDR}:${env.MYSQL_PORT_3306_TCP_PORT}/${env.MYSQL_DATABASE:keycloak}, driver-name=mysql)
 /subsystem=datasources/data-source=KeycloakDS: write-attribute(name=user-name, value=${env.MYSQL_USERNAME:keycloak})
@@ -12,7 +13,9 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /subsystem=datasources/data-source=KeycloakDS: write-attribute(name=background-validation-millis, value=60000)
 /subsystem=datasources/data-source=KeycloakDS: write-attribute(name=flush-strategy, value=IdleConnections)
 /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
+
 /subsystem=deployment-scanner/scanner=default:undefine-attribute(name=scan-enabled)
+
 /subsystem=jgroups/channel=ee: write-attribute(name=stack,value=${env.JGROUPS_STACK:tcp})
 /subsystem=jgroups/stack=udp:remove()
 /subsystem=jgroups/stack=tcp:remove()
@@ -36,8 +39,10 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 
 /subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=redirect-socket,value=proxy-https)
 /subsystem=undertow/server=default-server/http-listener=default:write-attribute(name=proxy-address-forwarding,value=true)
+
 /interface=private: write-attribute(name=nic, value=eth0)
 /interface=private:undefine-attribute(name=inet-address)
+
 /socket-binding-group=standard-sockets/socket-binding=proxy-https: add(port=443)
 /socket-binding-group=standard-sockets/socket-binding=jgroups-mping: remove()
 /socket-binding-group=standard-sockets/socket-binding=jgroups-udp-fd: remove()
