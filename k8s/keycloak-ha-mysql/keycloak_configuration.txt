@@ -14,7 +14,7 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
 /subsystem=deployment-scanner/scanner=default:undefine-attribute(name=scan-enabled)
 /subsystem=jgroups/channel=ee: write-attribute(name=stack,value=${env.JGROUPS_STACK:tcp})
-
+/subsystem=jgroups/stack=udp:remove()
 /subsystem=jgroups/stack=tcp:remove()
 /subsystem=jgroups/stack=tcp:add()
 /subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding="jgroups-tcp")
@@ -40,3 +40,5 @@ embed-server --server-config=standalone-ha.xml --std-out=echo
 /interface=private:undefine-attribute(name=inet-address)
 /socket-binding-group=standard-sockets/socket-binding=proxy-https: add(port=443)
 /socket-binding-group=standard-sockets/socket-binding=jgroups-mping: remove()
+/socket-binding-group=standard-sockets/socket-binding=jgroups-udp-fd: remove()
+/socket-binding-group=standard-sockets/socket-binding=jgroups-udp: remove()
