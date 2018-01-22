@@ -2,9 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rest
-  namespace: kafka
+  namespace: danitest
 spec:
   ports:
   - port: 80
   selector:
     app: kafka-rest
+  type: LoadBalancer
