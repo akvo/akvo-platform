@@ -24,7 +24,7 @@ data:
 
     #id=kafka-rest-test-server
     listeners=http://0.0.0.0:80
-    bootstrap.servers=lovely-mule-kafka-0.lovely-mule-kafka-headless.danitest.svc.cluster.local:9092
+    bootstrap.servers=lovely-mule-kafka-0.lovely-mule-kafka-headless:9092
     zookeeper.connect=lovely-mule-zookeeper:2181
     schema.registry.url=http://lovely-mule-schema-registry:8081
     #
