@@ -52,5 +52,6 @@ data:
     log4j.logger.org.apache.zookeeper=ERROR, stdout
     log4j.logger.org.apache.kafka=ERROR, stdout
     log4j.logger.org.I0Itec.zkclient=ERROR, stdout
+    io.confluent.kafkarest.KafkaRestConfig=WARN, stdout
     log4j.additivity.kafka.server=false
     log4j.additivity.kafka.consumer.ZookeeperConsumerConnector=false
