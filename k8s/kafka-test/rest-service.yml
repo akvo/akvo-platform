@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rest
-  namespace: danitest
+  namespace: kafka
 spec:
   ports:
   - port: 443

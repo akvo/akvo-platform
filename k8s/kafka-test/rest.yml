@@ -2,7 +2,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: rest
-  namespace: danitest
+  namespace: kafka
 spec:
   replicas: 1
   template:
