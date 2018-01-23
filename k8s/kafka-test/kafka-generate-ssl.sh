@@ -2,6 +2,13 @@
 
 set -e
 
+keystore_password=asdkfasjdflksdmf
+key_password="asdkfasjdflksdmfasdlvkamsdvlkambga.sd,mv"
+CN_NAME=kafka-rest-proxy.akvotest.org
+
+truststore_pass=keystorepass
+private_key_pass=pempass
+
 KEYSTORE_FILENAME="kafka.keystore.jks"
 VALIDITY_IN_DAYS=3650
 DEFAULT_TRUSTSTORE_FILENAME="kafka.truststore.jks"
@@ -19,23 +26,23 @@ function file_exists_and_exit() {
 }
 
 if [ -e "$KEYSTORE_WORKING_DIRECTORY" ]; then
-  file_exists_and_exit $KEYSTORE_WORKING_DIRECTORY
+  rm -rf $KEYSTORE_WORKING_DIRECTORY
 fi
 
 if [ -e "$CA_CERT_FILE" ]; then
-  file_exists_and_exit $CA_CERT_FILE
+  rm -rf $CA_CERT_FILE
 fi
 
 if [ -e "$KEYSTORE_SIGN_REQUEST" ]; then
-  file_exists_and_exit $KEYSTORE_SIGN_REQUEST
+  rm -rf $KEYSTORE_SIGN_REQUEST
 fi
 
 if [ -e "$KEYSTORE_SIGN_REQUEST_SRL" ]; then
-  file_exists_and_exit $KEYSTORE_SIGN_REQUEST_SRL
+  rm -rf  $KEYSTORE_SIGN_REQUEST_SRL
 fi
 
 if [ -e "$KEYSTORE_SIGNED_CERT" ]; then
-  file_exists_and_exit $KEYSTORE_SIGNED_CERT
+  rm -rf $KEYSTORE_SIGNED_CERT
 fi
 
 echo
@@ -46,77 +53,28 @@ echo "First, do you need to generate a trust store and associated private key,"
 echo "or do you already have a trust store file and private key?"
 echo
 echo -n "Do you need to generate a trust store and associated private key? [yn] "
-read generate_trust_store
+generate_trust_store="n"
 
 trust_store_file=""
 trust_store_private_key_file=""
 
-if [ "$generate_trust_store" == "y" ]; then
-  if [ -e "$TRUSTSTORE_WORKING_DIRECTORY" ]; then
-    file_exists_and_exit $TRUSTSTORE_WORKING_DIRECTORY
-  fi
-
-  mkdir $TRUSTSTORE_WORKING_DIRECTORY
-  echo
-  echo "OK, we'll generate a trust store and associated private key."
-  echo
-  echo "First, the private key."
-  echo
-  echo "You will be prompted for:"
-  echo " - A password for the private key. Remember this."
-  echo " - Information about you and your company."
-  echo " - NOTE that the Common Name (CN) is currently not important."
-
-  openssl req -new -x509 -keyout $TRUSTSTORE_WORKING_DIRECTORY/ca-key \
-    -out $TRUSTSTORE_WORKING_DIRECTORY/ca-cert -days $VALIDITY_IN_DAYS
-
-  trust_store_private_key_file="$TRUSTSTORE_WORKING_DIRECTORY/ca-key"
-
-  echo
-  echo "Two files were created:"
-  echo " - $TRUSTSTORE_WORKING_DIRECTORY/ca-key -- the private key used later to"
-  echo "   sign certificates"
-  echo " - $TRUSTSTORE_WORKING_DIRECTORY/ca-cert -- the certificate that will be"
-  echo "   stored in the trust store in a moment and serve as the certificate"
-  echo "   authority (CA). Once this certificate has been stored in the trust"
-  echo "   store, it will be deleted. It can be retrieved from the trust store via:"
-  echo "   $ keytool -keystore <trust-store-file> -export -alias CARoot -rfc"
-
-  echo
-  echo "Now the trust store will be generated from the certificate."
-  echo
-  echo "You will be prompted for:"
-  echo " - the trust store's password (labeled 'keystore'). Remember this"
-  echo " - a confirmation that you want to import the certificate"
-
-  keytool -keystore $TRUSTSTORE_WORKING_DIRECTORY/$DEFAULT_TRUSTSTORE_FILENAME \
-    -alias CARoot -import -file $TRUSTSTORE_WORKING_DIRECTORY/ca-cert
-
-  trust_store_file="$TRUSTSTORE_WORKING_DIRECTORY/$DEFAULT_TRUSTSTORE_FILENAME"
-
-  echo
-  echo "$TRUSTSTORE_WORKING_DIRECTORY/$DEFAULT_TRUSTSTORE_FILENAME was created."
-
-  # don't need the cert because it's in the trust store.
-  rm $TRUSTSTORE_WORKING_DIRECTORY/$CA_CERT_FILE
-else
-  echo
   echo -n "Enter the path of the trust store file. "
-  read -e trust_store_file
+  echo ""
+
+  trust_store_file=truststore/kafka.truststore.jks
 
   if ! [ -f $trust_store_file ]; then
     echo "$trust_store_file isn't a file. Exiting."
     exit 1
   fi
 
-  echo -n "Enter the path of the trust store's private key. "
-  read -e trust_store_private_key_file
+  echo ""
+  trust_store_private_key_file=truststore/ca-key
 
   if ! [ -f $trust_store_private_key_file ]; then
     echo "$trust_store_private_key_file isn't a file. Exiting."
     exit 1
   fi
-fi
 
 echo
 echo "Continuing with:"
@@ -142,6 +100,8 @@ echo " - A key password, for the key being generated within the keystore. Rememb
 # https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/X509ExtendedTrustManager.html
 
 keytool -keystore $KEYSTORE_WORKING_DIRECTORY/$KEYSTORE_FILENAME \
+  -dname "CN=${CN_NAME}, OU=Akvo, O=Akvo, L=Zgz, S=Zgz, C=ES" \
+  -storepass ${keystore_password} -keypass ${key_password} \
   -alias localhost -validity $VALIDITY_IN_DAYS -genkey -keyalg RSA
 
 echo
@@ -154,13 +114,14 @@ echo "Fetching the certificate from the trust store and storing in $CA_CERT_FILE
 echo
 echo "You will be prompted for the trust store's password (labeled 'keystore')"
 
-keytool -keystore $trust_store_file -export -alias CARoot -rfc -file $CA_CERT_FILE
+keytool -storepass ${truststore_pass} -keystore $trust_store_file -export -alias CARoot -rfc -file $CA_CERT_FILE
 
 echo
 echo "Now a certificate signing request will be made to the keystore."
 echo
 echo "You will be prompted for the keystore's password."
 keytool -keystore $KEYSTORE_WORKING_DIRECTORY/$KEYSTORE_FILENAME -alias localhost \
+  -storepass ${keystore_password} -keypass ${key_password} \
   -certreq -file $KEYSTORE_SIGN_REQUEST
 
 echo
@@ -169,7 +130,7 @@ echo
 echo "You will be prompted for the trust store's private key password."
 openssl x509 -req -CA $CA_CERT_FILE -CAkey $trust_store_private_key_file \
   -in $KEYSTORE_SIGN_REQUEST -out $KEYSTORE_SIGNED_CERT \
-  -days $VALIDITY_IN_DAYS -CAcreateserial
+  -days $VALIDITY_IN_DAYS -CAcreateserial -passin pass:${private_key_pass}
 # creates $KEYSTORE_SIGN_REQUEST_SRL which is never used or needed.
 
 echo
@@ -178,6 +139,7 @@ echo
 echo "You will be prompted for the keystore's password and a confirmation that you want to"
 echo "import the certificate."
 keytool -keystore $KEYSTORE_WORKING_DIRECTORY/$KEYSTORE_FILENAME -alias CARoot \
+  -storepass ${keystore_password} -noprompt \
   -import -file $CA_CERT_FILE
 rm $CA_CERT_FILE # delete the trust store cert because it's stored in the trust store.
 
@@ -186,6 +148,7 @@ echo "Now the keystore's signed certificate will be imported back into the keyst
 echo
 echo "You will be prompted for the keystore's password."
 keytool -keystore $KEYSTORE_WORKING_DIRECTORY/$KEYSTORE_FILENAME -alias localhost -import \
+  -storepass ${keystore_password} -keypass ${key_password} \
   -file $KEYSTORE_SIGNED_CERT
 
 echo
@@ -198,7 +161,8 @@ echo "   (that was fulfilled)"
 echo " - '$KEYSTORE_SIGNED_CERT': the keystore's certificate, signed by the CA, and stored back"
 echo "    into the keystore"
 echo -n "Delete? [yn] "
-read delete_intermediate_files
+echo ""
+delete_intermediate_files="y"
 
 if [ "$delete_intermediate_files" == "y" ]; then
   rm $KEYSTORE_SIGN_REQUEST_SRL
