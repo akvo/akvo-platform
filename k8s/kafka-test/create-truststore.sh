@@ -2,8 +2,8 @@
 
 set -e
 
-private_key_password=fooasdfasdfdsaf
-truststore_password=barasdfadsfadsf
+private_key_password=<<your password here>>
+truststore_password=<<your password here>>
 
 VALIDITY_IN_DAYS=3650
 DEFAULT_TRUSTSTORE_FILENAME="kafka.truststore.jks"

@@ -2,12 +2,12 @@
 
 set -e
 
-keystore_password=asdkfasjdflksdmf
-key_password="asdkfasjdflksdmfasdlvkamsdvlkambga.sd,mv"
-CN_NAME=kafka-rest-proxy.akvotest.org
+keystore_password=<<your password here>>
+key_password=<<your password here>>
+CN_NAME=<<your CN name here>>
 
-truststore_pass=keystorepass
-private_key_pass=pempass
+truststore_pass=<<your password here>>
+private_key_pass=<<your password here>>
 
 KEYSTORE_FILENAME="kafka.keystore.jks"
 VALIDITY_IN_DAYS=3650
