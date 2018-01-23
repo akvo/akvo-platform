@@ -5,7 +5,7 @@ metadata:
   namespace: danitest
 spec:
   ports:
-  - port: 80
+  - port: 443
   selector:
     app: kafka-rest
   type: LoadBalancer
