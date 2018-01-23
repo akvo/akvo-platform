@@ -29,9 +29,12 @@ spec:
             port: 80
         ports:
         - containerPort: 80
+        - containerPort: 443
         volumeMounts:
         - name: config
           mountPath: /etc/kafka-rest
+        - name: secret-config
+          mountPath: /etc/kafka-rest-secrets
         resources:
           requests:
             cpu: "10m"
@@ -41,3 +44,6 @@ spec:
       - name: config
         configMap:
           name: confluent-config
+      - name: secret-config
+        secret:
+          secretName: confluent-secret
