@@ -13,7 +13,7 @@ KEYSTORE_FILENAME="kafka.keystore.jks"
 VALIDITY_IN_DAYS=3650
 DEFAULT_TRUSTSTORE_FILENAME="kafka.truststore.jks"
 TRUSTSTORE_WORKING_DIRECTORY="truststore"
-KEYSTORE_WORKING_DIRECTORY="keystore"
+KEYSTORE_WORKING_DIRECTORY="${CN_NAME}"
 CA_CERT_FILE="ca-cert"
 KEYSTORE_SIGN_REQUEST="cert-file"
 KEYSTORE_SIGN_REQUEST_SRL="ca-cert.srl"
@@ -26,23 +26,23 @@ function file_exists_and_exit() {
 }
 
 if [ -e "$KEYSTORE_WORKING_DIRECTORY" ]; then
-  rm -rf $KEYSTORE_WORKING_DIRECTORY
+  file_exists_and_exit $KEYSTORE_WORKING_DIRECTORY
 fi
 
 if [ -e "$CA_CERT_FILE" ]; then
-  rm -rf $CA_CERT_FILE
+  file_exists_and_exit $CA_CERT_FILE
 fi
 
 if [ -e "$KEYSTORE_SIGN_REQUEST" ]; then
-  rm -rf $KEYSTORE_SIGN_REQUEST
+  file_exists_and_exit $KEYSTORE_SIGN_REQUEST
 fi
 
 if [ -e "$KEYSTORE_SIGN_REQUEST_SRL" ]; then
-  rm -rf  $KEYSTORE_SIGN_REQUEST_SRL
+  file_exists_and_exit $KEYSTORE_SIGN_REQUEST_SRL
 fi
 
 if [ -e "$KEYSTORE_SIGNED_CERT" ]; then
-  rm -rf $KEYSTORE_SIGNED_CERT
+  file_exists_and_exit $KEYSTORE_SIGNED_CERT
 fi
 
 echo
