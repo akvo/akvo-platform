@@ -23,7 +23,7 @@ data:
     ##
 
     #id=kafka-rest-test-server
-    listeners=http://0.0.0.0:80
+    listeners=http://0.0.0.0:80,https://0.0.0.0:443
     bootstrap.servers=lovely-mule-kafka-0.lovely-mule-kafka-headless:9092
     zookeeper.connect=lovely-mule-zookeeper:2181
     schema.registry.url=http://lovely-mule-schema-registry:8081
@@ -32,6 +32,14 @@ data:
     # Make sure that monitoring-interceptors-<version>.jar is on the Java class path
     #consumer.interceptor.classes=io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
     #producer.interceptor.classes=io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor
+    ssl.keystore.location=/etc/kafka-rest-secrets/kafka.keystore.jks
+    ssl.keystore.password=asdkfasjdflksdmf
+    ssl.key.password=asdkfasjdflksdmfasdlvkamsdvlkambga.sd,mv
+    ssl.truststore.location=/etc/kafka-rest-secrets/kafka.truststore.jks
+    ssl.truststore.password=keystorepass
+    ssl.keystore.type=JKS
+    ssl.truststore.type=JKS
+    ssl.client.auth=true
 
   log4j.properties: |-
     log4j.rootLogger=INFO, stdout
