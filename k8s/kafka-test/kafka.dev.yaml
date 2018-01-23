@@ -1,5 +1,5 @@
 # Default values for Confluent Schema-Registry
-# helm install --namespace danitest -f kafka.dev.yaml incubator/schema-registry
+# helm install --namespace kafka --name akvo-test -f kafka.dev.yaml incubator/schema-registry
 # name: value
 
 ## Schema Registry Settings Overrides

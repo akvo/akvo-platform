@@ -1,12 +1,12 @@
 The rest proxy needs a truststore and keystore. 
 
-The truststore is at ... and must be named kafka.truststore.jks
-The keystore is at ... and must be named kafka.keystore.jks. It must have the CN kafka-rest-proxy.akvotest.org
+The truststore is at 1password and must be named kafka.truststore.jks
+The keystore is at 1password and must be named kafka.keystore.jks. It must have the CN kafka-rest-proxy.akvotest.org
 
 The passwords must be added to the kafka-rest.properties file. Then run:
 
 ````
-kubectl create --namespace danitest secret generic confluent-secret \
+kubectl create --namespace kafka secret generic confluent-secret \
         --from-file=./kafka.keystore.jks \
         --from-file=./kafka.truststore.jks \
         --from-file=./kafka-rest.properties \
