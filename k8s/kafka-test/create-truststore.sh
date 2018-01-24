@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+## Dumb down version of https://github.com/confluentinc/confluent-platform-security-tools/blob/master/kafka-generate-ssl.sh
 set -e
 
 private_key_password=<<your password here>>
