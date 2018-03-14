@@ -1,0 +1,23 @@
+---
+apiVersion: config.istio.io/v1alpha2
+kind: EndUserAuthenticationPolicySpec
+metadata:
+  name: flow-api-auth-policy
+  namespace: default
+spec:
+  jwts:
+    - issuer: https://kc.akvotest.org/auth/realms/akvo
+      jwks_uri: https://kc.akvotest.org/auth/realms/akvo/protocol/openid-connect/certs
+---
+apiVersion: config.istio.io/v1alpha2
+kind: EndUserAuthenticationPolicySpecBinding
+metadata:
+  name: flow-api-auth-policy-binding
+  namespace: default
+spec:
+  policies:
+    - name: flow-api-auth-policy
+      namespace: default
+  services:
+    - name: flow-api
+      namespace: default

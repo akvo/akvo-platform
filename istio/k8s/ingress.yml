@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-gateway
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  tls:
+  - secretName: tls
+  rules:
+  - http:
+      paths:
+      - path: /flow/.*
+        backend:
+          serviceName: flow-api
+          servicePort: 80
