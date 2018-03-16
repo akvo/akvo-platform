@@ -31,7 +31,7 @@ metadata:
 spec:
   quotas:
   - name: requestcount.quota.istio-system
-    maxAmount: 4000
+    maxAmount: 10
     validDuration: 1s
     overrides:
     - dimensions:
@@ -46,6 +46,7 @@ metadata:
   namespace: istio-system
 spec:
   dimensions:
+    destination: destination.labels["run"] | destination.service | "unknown"
     user: request.auth.principal|"unauthorized"
 ---
 apiVersion: config.istio.io/v1alpha2
