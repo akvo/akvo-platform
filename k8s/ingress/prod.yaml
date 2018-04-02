@@ -12,6 +12,12 @@ spec:
     - "login.akvo.org"
     secretName: tls
   rules:
+    - host: "api.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: flow-api
+            servicePort: 80
     - host: "*.akvolumen.org"
       http:
         paths:
@@ -24,12 +30,6 @@ spec:
         - backend:
             serviceName: akvo-flow-services
             servicePort: 3000
-    - host: "api.akvo.org"
-      http:
-        paths:
-        - backend:
-            serviceName: flow-api
-            servicePort: 80
     - host: "login.akvo.org"
       http:
         paths:
