@@ -10,8 +10,15 @@ spec:
     - "*.akvoflow.org"
     - "api.akvotest.org"
     - "kc.akvotest.org"
+    - "flow-services.akvotest.org"
     secretName: tls
   rules:
+    - host: "flow-services.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-flow-services
+            servicePort: 3000
     - host: "api.akvotest.org"
       http:
         paths:
@@ -24,12 +31,6 @@ spec:
         - backend:
             serviceName: lumen-blue-green-gateway
             servicePort: 80
-    - host: "*.akvoflow.org"
-      http:
-        paths:
-        - backend:
-            serviceName: akvo-flow-services
-            servicePort: 3000
     - host: "kc.akvotest.org"
       http:
         paths:
