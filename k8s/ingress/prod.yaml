@@ -25,15 +25,15 @@ spec:
         - backend:
             serviceName: flow-api
             servicePort: 80
-    - host: "*.akvolumen.org"
-      http:
-        paths:
-        - backend:
-            serviceName: lumen-blue-green-gateway
-            servicePort: 80
     - host: "login.akvo.org"
       http:
         paths:
         - backend:
             serviceName: keycloak
+            servicePort: 80
+    - host: "*.akvolumen.org"
+      http:
+        paths:
+        - backend:
+            serviceName: lumen-blue-green-gateway
             servicePort: 80
