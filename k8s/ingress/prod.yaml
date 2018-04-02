@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: akvo
+  namespace: default
+spec:
+  tls:
+  - hosts:
+    - "*.akvolumen.org"
+    - "*.akvoflow.org"
+    - "api.akvo.org"
+    - "login.akvo.org"
+    secretName: tls
+  rules:
+    - host: "*.akvolumen.org"
+      http:
+        paths:
+        - backend:
+            serviceName: lumen-blue-green-gateway
+            servicePort: 80
+    - host: "*.akvoflow.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-flow-services
+            servicePort: 3000
+    - host: "api.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: flow-api
+            servicePort: 80
+    - host: "login.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: keycloak
+            servicePort: 80
