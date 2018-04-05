@@ -6,9 +6,7 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "api.akvo.org"
-    - "login.akvo.org"
-    - "flow-services.akvo.org"
+    - "*.akvo.org"
     - "*.akvolumen.org"
     secretName: tls
   rules:
@@ -24,7 +22,19 @@ spec:
         - backend:
             serviceName: flow-api
             servicePort: 80
+    - host: "dark-api.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: flow-api
+            servicePort: 80
     - host: "login.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: keycloak
+            servicePort: 80
+    - host: "dark-login.akvo.org"
       http:
         paths:
         - backend:
