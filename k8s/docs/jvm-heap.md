@@ -1,6 +1,12 @@
 
 # Steps to take a heap dump of a JVM process in a k8s Pod
 
+**Update**: We have followed a different approach and start the JVM
+process with `-XX:+HeapDumpOnOutOfMemoryError` and dump the file in a
+shared volume.  A _sidecar_ container watches that folder and uploads
+any new file to a storage bucket.  More details:
+https://github.com/akvo/akvo-flow-api/pull/135
+
 Notes:
 
 * The default tool (`jmap`) is not available by default in the JRE packages on Debian nor Alpine:
