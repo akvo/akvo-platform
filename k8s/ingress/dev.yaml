@@ -11,8 +11,15 @@ spec:
     - "api.akvotest.org"
     - "kc.akvotest.org"
     - "flow-services.akvotest.org"
+    - "k8s-rsr.akvotest.org"
     secretName: tls
   rules:
+    - host: "k8s-rsr.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr
+            servicePort: 80
     - host: "flow-services.akvotest.org"
       http:
         paths:
