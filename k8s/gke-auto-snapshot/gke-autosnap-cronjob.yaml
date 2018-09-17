@@ -1,0 +1,17 @@
+# from https://github.com/prodatakey/gke-auto-snapshot
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gke-auto-snapshot
+spec:
+  schedule: "0 2 * * *"
+  startingDeadlineSeconds: 10800
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: gke-auto-snapshot
+            image: prodatakey/gke-auto-snapshot:latest
+          restartPolicy: OnFailure
