@@ -10,7 +10,7 @@ spec:
     - "*.akvolumen.org"
     secretName: tls
   rules:
-    - host: "rsr.k8s.akvo.org"
+    - host: "rsr-k8s.akvo.org"
       http:
         paths:
         - backend:
