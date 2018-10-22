@@ -10,6 +10,12 @@ spec:
     - "*.akvolumen.org"
     secretName: tls
   rules:
+    - host: "rsr.k8s.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr
+            servicePort: 80
     - host: "flow-services.akvo.org"
       http:
         paths:
