@@ -8,9 +8,22 @@ spec:
   - hosts:
     - "*.akvo.org"
     - "*.akvolumen.org"
+    - "*.akvoapp.org"
     secretName: tls
   rules:
     - host: "rsr-k8s.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr
+            servicePort: 80
+    - host: "rsr.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr
+            servicePort: 80
+    - host: "*.akvoapp.org"
       http:
         paths:
         - backend:
