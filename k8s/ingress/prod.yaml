@@ -59,6 +59,12 @@ spec:
         - backend:
             serviceName: keycloak
             servicePort: 80
+    - host: "unilog.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-unilog
+            servicePort: 3030
     - host: "*.akvolumen.org"
       http:
         paths:
