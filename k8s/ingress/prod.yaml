@@ -59,6 +59,12 @@ spec:
         - backend:
             serviceName: keycloak
             servicePort: 80
+    - host: "reportserver.akvo.org"
+      http:
+          paths:
+              - backend:
+                    serviceName: reportserver
+                    servicePort: 80
     - host: "unilog.akvo.org"
       http:
         paths:
