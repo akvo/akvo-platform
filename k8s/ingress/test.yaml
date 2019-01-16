@@ -47,7 +47,7 @@ spec:
         paths:
         - backend:
             serviceName: reportserver
-            servicePort: 80
+            servicePort: 8080
     - host: "unilog.akvotest.org"
       http:
         paths:
