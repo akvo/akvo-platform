@@ -11,12 +11,6 @@ spec:
     - "*.akvoapp.org"
     secretName: tls
   rules:
-    - host: "rsr-k8s.akvo.org"
-      http:
-        paths:
-        - backend:
-            serviceName: rsr
-            servicePort: 80
     - host: "rsr.akvo.org"
       http:
         paths:
@@ -64,13 +58,7 @@ spec:
         paths:
         - backend:
             serviceName: reportserver
-            servicePort: 80
-    - host: "unilog.akvo.org"
-      http:
-        paths:
-        - backend:
-            serviceName: akvo-unilog
-            servicePort: 3030
+            servicePort: 8080
     - host: "*.akvolumen.org"
       http:
         paths:
