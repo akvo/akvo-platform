@@ -59,6 +59,18 @@ spec:
         - backend:
             serviceName: reportserver
             servicePort: 8080
+    - host: "unilog-k8s.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-unilog
+            servicePort: 3030
+    - host: "unilog.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-unilog
+            servicePort: 3030
     - host: "*.akvolumen.org"
       http:
         paths:
