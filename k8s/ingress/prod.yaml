@@ -41,6 +41,12 @@ spec:
         - backend:
             serviceName: flow-api
             servicePort: 80
+    - host: "api-auth0.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: flow-api-auth0
+            servicePort: 80
     - host: "login.akvo.org"
       http:
         paths:
