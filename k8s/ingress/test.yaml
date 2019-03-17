@@ -60,6 +60,12 @@ spec:
         - backend:
             serviceName: akvo-unilog
             servicePort: 3030
+    - host: "ckan.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-ckan
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
