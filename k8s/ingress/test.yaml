@@ -66,6 +66,12 @@ spec:
         - backend:
             serviceName: akvo-ckan
             servicePort: 80
+    - host: "tech-consultancy.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: tech-consultancy-gateway
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
