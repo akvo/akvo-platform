@@ -72,6 +72,12 @@ spec:
         - backend:
             serviceName: tech-consultancy-gateway
             servicePort: 80
+    - host: "grafana.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: grafana
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
