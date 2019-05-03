@@ -77,6 +77,12 @@ spec:
         - backend:
             serviceName: akvo-unilog
             servicePort: 3030
+    - host: "metrics.akvo.org"
+      http:
+        paths:
+          - backend:
+              serviceName: grafana
+              servicePort: 80
     - host: "*.akvolumen.org"
       http:
         paths:
