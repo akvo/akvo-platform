@@ -78,6 +78,30 @@ spec:
         - backend:
             serviceName: grafana
             servicePort: 80
+    - host: "rsr1.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr-demo-gateway
+            servicePort: 80
+    - host: "rsr2.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr-demo-gateway
+            servicePort: 80
+    - host: "rsr3.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr-demo-gateway
+            servicePort: 80
+    - host: "rsr4.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: rsr-demo-gateway
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
