@@ -42,6 +42,18 @@ spec:
         - backend:
             serviceName: flow-api-auth0
             servicePort: 80
+    - host: "authz.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-authz
+            servicePort: 80
+    - host: "authz-auth0.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-authz-auth0
+            servicePort: 80
     - host: "kc.akvotest.org"
       http:
         paths:
