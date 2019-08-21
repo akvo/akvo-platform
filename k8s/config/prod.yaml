@@ -7,4 +7,5 @@ data:
   keycloak.url: https://login.akvo.org/auth
   email.host: mail.akvo.org
   flow.api.root: https://api.akvo.org/flow
+  flow.api.auth0.root: https://api-auth0.akvo.org/flow
   environment: production
