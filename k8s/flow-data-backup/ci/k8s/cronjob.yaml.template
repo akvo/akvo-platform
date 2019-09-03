@@ -1,0 +1,44 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: flow-data-backup
+spec:
+  schedule: "* * * * *"
+  #schedule: "@hourly"
+  startingDeadlineSeconds: 600 # it is ok to start the job 10 minutes late
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    metadata:
+      labels:
+        cronjob: flow-data-backup # <-- for monitoring
+    spec:
+      # activeDeadlineSeconds: 900 # Fail job if it takes more than 15 mins
+      template:
+        metadata:
+          labels:
+            cronjob: flow-data-backup
+        spec:
+          containers:
+          - name: flow-data-backup
+            image: eu.gcr.io/akvo-lumen/flow-data-backup:${TRAVIS_COMMIT}
+            resources:
+              requests:
+                cpu: "50m"
+                memory: "256Mi"
+              limits:
+                cpu: "200m"
+                memory: "256Mi"
+            env:
+              - name: GITHUB_AUTH_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: flow-data-backup
+                    key: github-auth-token
+              - name: SENTRY_DSN
+                valueFrom:
+                  secretKeyRef:
+                    name: sentry-dsn
+                    key: keycloak-pwd
+          restartPolicy: Never
