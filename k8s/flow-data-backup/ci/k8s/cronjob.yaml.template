@@ -39,6 +39,6 @@ spec:
               - name: SENTRY_DSN
                 valueFrom:
                   secretKeyRef:
-                    name: sentry-dsn
-                    key: keycloak-pwd
+                    name: flow-data-backup
+                    key: sentry-dsn
           restartPolicy: Never
