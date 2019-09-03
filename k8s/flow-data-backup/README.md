@@ -7,3 +7,7 @@ The main code is at src/backup.sh, which it does its best to create the required
 See the src/fix.instance.sh script for some one-off configuration fixes.
 
 src/restore.sh contains the instructions to restore a backup.
+
+Back ups are run weekly (Sunday midnight). See [here](ci/k8s/cronjob.yaml.template#L6).
+
+EventQueue and system kinds are not backed up. See [here](src/kinds.py#L17) for details.
