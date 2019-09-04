@@ -9,8 +9,6 @@ tar xzvf flow-config.tar.gz --strip-components=1 --directory=${FLOW_CONFIG_DIREC
 
 for i in `find ${FLOW_CONFIG_DIRECTORY} | grep p12 | cut -f 2 -d/ | sort`; do
     echo "Starting backup for $i"
-    ## We are adding the instance as a env var so that sentry-cli adds it to the failure message, so that we know which instance failed.
-    export FLOW_INSTANCE=${i}
 #    ./backup.sh ${i} ${FLOW_CONFIG_DIRECTORY}/${i} || echo "Backup failed for $i"
 done
 

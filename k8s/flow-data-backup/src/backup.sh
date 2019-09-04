@@ -7,6 +7,8 @@ function log {
 }
 
 instance=$1
+## We are adding the instance as a env var so that sentry-cli adds it to the failure message, so that we know which instance failed.
+export FLOW_INSTANCE=${instance}
 instance_config_directory=$2
 bucket=gs://akvobackup-${instance}
 bucket_path=${bucket}/$(date "+%FT%T")
