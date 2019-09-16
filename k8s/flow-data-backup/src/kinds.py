@@ -14,5 +14,5 @@ client = datastore.Client(project=sys.argv[1])
 
 all_kinds = kind_run_query(client)
 result = filter(lambda x: not x.startswith("_"), all_kinds)
-result = [x for x in result if x not in ['EventQueue']]
+result = [x for x in result if x not in ['EventQueue', 'ColumnContainer', 'AccessPointMetricSummary', 'AccessPointMetricMapping', 'AccessPointMappingHistory', 'MappingSpreadsheetDefinition', 'MapFragment', 'MapControl', 'GeoRegion', 'StandardScoring', 'Standard', 'SpreadsheetContainer', 'RowContainer', 'QuestionHelpMedia', 'WebActivityAuthorization', 'UnitOfMeasure', 'TechnologyType']]
 print(','.join(result))
