@@ -5,6 +5,7 @@ metadata:
   namespace: default
 data:
   auth0.url: https://akvotest.eu.auth0.com
+  auth0.public.client.id: D5LayiXP1pzq-6g2B_QVvzCw_eycZxQK
   keycloak.url: https://kc.akvotest.org/auth
   email.host: mail.akvo.org
   flow.api.root: https://api.akvotest.org/flow
