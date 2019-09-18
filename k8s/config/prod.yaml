@@ -11,4 +11,4 @@ data:
   flow.api.auth0.root: https://api-auth0.akvo.org/flow
   flow.api.root: https://api.akvo.org/flow
   keycloak.url: https://login.akvo.org/auth
-  lumen.api.authz.probability: "0.0"
+  lumen.api.authz.probability: "0.1"
