@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(sentry-cli bash-hook)"
+#eval "$(sentry-cli bash-hook)"
 
 function log {
    echo "$(date +"%T") - INFO - $*"
@@ -49,7 +49,12 @@ fi
 
 python3 convert.py ${instance} ${p12_file} ${account} service-account.json
 export GOOGLE_APPLICATION_CREDENTIALS=service-account.json
-kinds=$(python3 kinds.py ${instance})
 
-log backing up ${instance} to ${bucket_path}, kinds: ${kinds}
-gcloud datastore export --namespaces="(default)" --kinds=${kinds} ${bucket_path}
+if gcloud app describe | grep servingStatus | grep SERVING; then
+  kinds=$(python3 kinds.py ${instance})
+  echo $kinds
+  log backing up ${instance} to ${bucket_path}, kinds: ${kinds}
+  gcloud datastore export --namespaces="(default)" --kinds=${kinds} ${bucket_path}
+else
+  log Instance ${instance} not in serviring state. Not backing up instance ${instance}
+fi
