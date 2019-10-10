@@ -3,13 +3,16 @@ kind: Ingress
 metadata:
   name: akvo
   namespace: default
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: "letsencrypt"
 spec:
   tls:
   - hosts:
     - "*.akvo.org"
     - "*.akvolumen.org"
     - "*.akvoapp.org"
-    secretName: tls
+    secretName: tls-cert-manager
   rules:
     - host: "rsr.akvo.org"
       http:
