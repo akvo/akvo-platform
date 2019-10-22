@@ -4,8 +4,10 @@ metadata:
   name: akvo
   namespace: default
 data:
-  auth.public.client.id: D5LayiXP1pzq-6g2B_QVvzCw_eycZxQK
   auth.url: https://akvotest.eu.auth0.com
+  auth.public.client.id: D5LayiXP1pzq-6g2B_QVvzCw_eycZxQK
+  auth.issuer.suffix.url: /
+  auth.rsa.suffix.url: .well-known/jwks.json
   auth0.public.client.id: D5LayiXP1pzq-6g2B_QVvzCw_eycZxQK
   auth0.url: https://akvotest.eu.auth0.com
   email.host: mail.akvo.org
