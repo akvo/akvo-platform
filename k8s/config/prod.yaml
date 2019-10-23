@@ -8,11 +8,8 @@ data:
   auth.public.client.id: 7Ze0JP6Jjf7zItGy3ekyuTvwGyik4Lay
   auth.issuer.suffix.url: /
   auth.rsa.suffix.url: .well-known/jwks.json
-  auth0.public.client.id: 7Ze0JP6Jjf7zItGy3ekyuTvwGyik4Lay
-  auth0.url: https://akvofoundation.eu.auth0.com
   email.host: mail.akvo.org
   environment: production
-  flow.api.auth0.root: https://api-auth0.akvo.org/flow
   flow.api.root: https://api-auth0.akvo.org/flow
   keycloak.url: https://login.akvo.org/auth
-  lumen.api.authz.probability: "1"
+  
