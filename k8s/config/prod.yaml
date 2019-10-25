@@ -11,3 +11,4 @@ data:
   email.host: mail.akvo.org
   environment: production
   flow.api.root: https://api-auth0.akvo.org/flow
+  keycloak.url: https://login.akvo.org/auth
