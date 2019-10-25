@@ -7,6 +7,7 @@ data:
   auth.url: https://akvofoundation.eu.auth0.com/
   auth.public.client.id: 7Ze0JP6Jjf7zItGy3ekyuTvwGyik4Lay
   auth.rsa.suffix.url: .well-known/jwks.json
+  auth.end.session.endpoint.suffix: v2/logout
   email.host: mail.akvo.org
   environment: production
   flow.api.root: https://api-auth0.akvo.org/flow
