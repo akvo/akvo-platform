@@ -4,9 +4,8 @@ metadata:
   name: akvo
   namespace: default
 data:
-  auth.url: https://akvofoundation.eu.auth0.com
+  auth.url: https://akvofoundation.eu.auth0.com/
   auth.public.client.id: 7Ze0JP6Jjf7zItGy3ekyuTvwGyik4Lay
-  auth.issuer.suffix.url: /
   auth.rsa.suffix.url: .well-known/jwks.json
   email.host: mail.akvo.org
   environment: production
