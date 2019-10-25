@@ -11,3 +11,4 @@ data:
   email.host: mail.akvo.org
   environment: test
   flow.api.root: https://api-auth0.akvotest.org/flow
+  keycloak.url: https://kc.akvotest.org/auth
