@@ -98,3 +98,9 @@ spec:
         - backend:
             serviceName: lumen-blue-green-gateway
             servicePort: 80
+    - host: "2scale.tc.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: tech-consultancy-gateway
+            servicePort: 80
