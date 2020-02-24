@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -u
+set -ue
 
 #eval "$(sentry-cli bash-hook)"
 
