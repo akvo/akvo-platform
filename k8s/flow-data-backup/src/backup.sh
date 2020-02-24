@@ -2,7 +2,7 @@
 
 set -ueETo pipefail
 
-#eval "$(sentry-cli bash-hook)"
+eval "$(sentry-cli bash-hook)"
 
 function log {
    echo "$(date +"%T") - INFO - $*"
