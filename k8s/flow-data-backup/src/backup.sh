@@ -52,7 +52,7 @@ fi
 python3 convert.py "${instance}" "${p12_file}" "${account}" service-account.json
 export GOOGLE_APPLICATION_CREDENTIALS=service-account.json
 
-if [[ $(gcloud app describe --format=json | jq -M -r.servingStatus) == "SERVING" ]]; then
+if [[ $(gcloud app describe --format=json | jq -M -r .servingStatus) == "SERVING" ]]; then
   kinds=$(python3 kinds.py "${instance}")
   echo "${kinds}"
   log backing up "${instance}" to "${bucket_path}, kinds: ${kinds}"
