@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ueo pipefail
+set -ueETo pipefail
 
 #eval "$(sentry-cli bash-hook)"
 
