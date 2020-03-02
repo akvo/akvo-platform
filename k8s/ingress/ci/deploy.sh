@@ -32,7 +32,9 @@ gcloud config set container/use_client_certificate True
 log Environment is test
 gcloud container clusters get-credentials test
 kubectl apply -f test.yaml
+kubectl apply -f timeout-backend-config.yaml
 
 log Environment is production
 gcloud container clusters get-credentials production
 kubectl apply -f prod.yaml
+kubectl apply -f timeout-backend-config.yaml
