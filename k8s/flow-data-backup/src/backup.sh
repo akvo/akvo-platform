@@ -47,6 +47,7 @@ if ! gsutil ls "${bucket}"; then
     fi
     log "Creating bucket ${bucket} in region ${region} (from location ${project_location})"
     gsutil mb -l "${region}" -c coldline --retention 90d "${bucket}"
+    gsutil lifecycle set delete.old.object.json "${bucket}"
 fi
 
 python3 convert.py "${instance}" "${p12_file}" "${account}" service-account.json
