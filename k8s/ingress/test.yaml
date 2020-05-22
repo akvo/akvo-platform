@@ -32,7 +32,7 @@ spec:
         paths:
         - backend:
             serviceName: akvo-flow-services
-            servicePort: 3000
+            servicePort: 8082
     - host: "api.akvotest.org"
       http:
         paths:
