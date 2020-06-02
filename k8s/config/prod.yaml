@@ -6,6 +6,7 @@ metadata:
 data:
   auth.url: https://akvofoundation.eu.auth0.com/
   auth.public.client.id: 7Ze0JP6Jjf7zItGy3ekyuTvwGyik4Lay
+  auth.public.client.password: HTz3d0SWEMl9PeYYsG8lFomo4b0SzcKrceM4VgKUN8-WdBdfdPH1uC_lMDnMeFpM
   auth.rsa.suffix.url: .well-known/jwks.json
   auth.end.session.endpoint.suffix: v2/logout
   email.host: mail.akvo.org
