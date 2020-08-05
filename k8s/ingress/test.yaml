@@ -105,6 +105,12 @@ spec:
         - backend:
             serviceName: rsr-demo-gateway
             servicePort: 80
+    - host: "dataportals.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: data-portals
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
