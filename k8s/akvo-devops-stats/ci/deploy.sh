@@ -39,7 +39,6 @@ docker push eu.gcr.io/${PROJECT_NAME}/akvo-devopsstats
 log Deploying
 
 sed -e "s/\$TRAVIS_COMMIT/$TRAVIS_COMMIT/" \
-  -e "s/\${ENVIRONMENT}/${ENVIRONMENT}/" \
   ci/k8s/akvo-devopsstats.yaml > final-akvo-devopsstats.yaml
 
 kubectl apply -f final-akvo-devopsstats.yaml
