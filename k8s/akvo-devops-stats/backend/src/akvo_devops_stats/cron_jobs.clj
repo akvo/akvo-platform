@@ -37,7 +37,7 @@
   (assert db)
   (assert metrics-collector)
   (timbre/info "Starting cron job to collect stats")
-  (let [cron-thread (Executors/newScheduledThreadPool 1)
+  #_(let [cron-thread (Executors/newScheduledThreadPool 1)
         cron-task (.scheduleWithFixedDelay cron-thread
                     (fn []
                       (log-and-ignore-error metrics-collector

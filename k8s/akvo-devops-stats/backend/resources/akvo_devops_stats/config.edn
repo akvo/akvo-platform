@@ -42,8 +42,9 @@
   {:hikari-cp #ig/ref :devops/db-no-stats
    :metrics-collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
 
-  ;:akvo-devops-stats.cron-jobs/start-cron {:db #ig/ref :devops/db
-  ;                                         :metrics-collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
+  :akvo-devops-stats.cron-jobs/start-cron {:db #ig/ref :devops/db
+                                           :wait-for-migrations #ig/ref :duct.migrator/ragtime
+                                           :metrics-collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
   }
 
  :duct.profile/dev
