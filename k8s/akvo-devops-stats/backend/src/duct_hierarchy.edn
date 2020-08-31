@@ -1,1 +1,2 @@
-{:akvo-devops-stats.util.nrepl/nrepl [:duct/daemon]}
+{:akvo-devops-stats.util.nrepl/nrepl [:duct/daemon]
+ :akvo-devops-stats.cron-jobs/start-cron [:duct/daemon]}
