@@ -14,7 +14,6 @@ spec:
         run: akvo-devopsstats
         akvo-devopsstats-version: $TRAVIS_COMMIT
         app: akvo-devopsstats
-        environment: ${ENVIRONMENT}
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '3000'
