@@ -8,7 +8,7 @@
 (defonce system-atom (atom nil))
 
 (defn -main [& args]
-  (let [keys (or (duct/parse-keys args) [:duct/daemon])
+  (let [keys (or (duct/parse-keys args) [:duct/daemon :duct/migrator])
         profiles [:duct.profile/prod]
         system (->
                 (duct/resource "akvo_devops_stats/config.edn")
