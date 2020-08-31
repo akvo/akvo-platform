@@ -13,7 +13,7 @@ if [ -z "${TRAVIS_COMMIT:-}" ]; then
 fi
 
 log Building backend dev container
-docker build --rm=false -t akvo-devops-dev:develop backend -f backend/dev/Dockerfile-dev
+docker build --rm=false -t akvo-devopsstats-dev:develop backend -f backend/dev/Dockerfile-dev
 log Building uberjar
 docker run -v $HOME/.m2:/root/.m2 -v $(pwd)/backend:/app akvo-devopsstats-dev:develop lein uberjar
 
