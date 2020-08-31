@@ -78,7 +78,7 @@ spec:
             port: 3000
           initialDelaySeconds: 90
         volumeMounts:
-          - name: authz-devopsstats
+          - name: devopsstats-secrets
             mountPath: "/secrets/cloudsql/credentials.json"
             subPath: "cloud-database-service-account.json"
             readOnly: true
