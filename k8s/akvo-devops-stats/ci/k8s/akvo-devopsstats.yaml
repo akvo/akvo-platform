@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akvo-devopsstats
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: akvo-devopsstats
+  template:
+    metadata:
+      labels:
+        run: akvo-devopsstats
+        akvo-devopsstats-version: $TRAVIS_COMMIT
+        app: akvo-devopsstats
+        environment: ${ENVIRONMENT}
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '3000'
+    spec:
+      containers:
+      - name: akvo-devopsstats
+        image: eu.gcr.io/akvo-lumen/akvo-devopsstats:$TRAVIS_COMMIT
+        ports:
+        - containerPort: 3000
+        env:
+         - name: POD_NAME
+           valueFrom:
+             fieldRef:
+               fieldPath: metadata.name
+         - name: POD_NAMESPACE
+           valueFrom:
+             fieldRef:
+               fieldPath: metadata.namespace
+         - name: APP_VERSION
+           value: $TRAVIS_COMMIT
+         - name: ENV_NAME
+           valueFrom:
+             configMapKeyRef:
+               name: akvo
+               key: environment
+         - name: DEVOPSSTATS_DATABASE_URL
+           valueFrom:
+             secretKeyRef:
+               name: akvo-devopsstats
+               key: devopsstats-database-url
+         - name: GOOGLE_APPLICATION_CREDENTIALS
+           value: "/secrets/cloudsql/credentials.json"
+         - name: GITHUB_TOKEN
+           valueFrom:
+             secretKeyRef:
+               name: akvo-devopsstats
+               key: github-auth-token
+         - name: TRAVIS_CI_TOKEN
+           valueFrom:
+             secretKeyRef:
+               name: akvo-devopsstats
+               key: travisci-auth-token
+         - name: SEMAPHORE_CI_TOKEN
+           valueFrom:
+             secretKeyRef:
+               name: akvo-devopsstats
+               key: semaphoreci-auth-token
+         - name: SENTRY_DSN
+           valueFrom:
+             secretKeyRef:
+               name: akvo-devopsstats
+               key: sentry-dsn
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 90
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 90
+        volumeMounts:
+          - name: authz-devopsstats
+            mountPath: "/secrets/cloudsql/credentials.json"
+            subPath: "cloud-database-service-account.json"
+            readOnly: true
+      volumes:
+        - name: devopsstats-secrets
+          secret:
+            secretName: akvo-devopsstats

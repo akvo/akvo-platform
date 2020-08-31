@@ -1,0 +1,64 @@
+{:duct.profile/base
+ {:duct.core/project-ns akvo-devops-stats
+
+  :duct.router/cascading
+  [#ig/ref [:akvo-devops-stats.handler/handler]]
+
+  :akvo-devops-stats.handler/handler
+  {:db #ig/ref :devops/db}
+
+  :akvo-devops-stats.util.monitoring/collector {}
+  :akvo-devops-stats.util.monitoring/middleware {:collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
+
+  :akvo-devops-stats.util.nrepl/nrepl {:bind #duct/env ["NREPL_BIND_HOST" :or "127.0.0.1"]
+                                       :port #duct/env ["NREPL_PORT" Int :or 47889]}
+
+  :akvo-devops-stats.util.monitoring/sentry-logger
+  {:dsn #duct/env "SENTRY_DSN"
+   :env #duct/env "ENV_NAME"
+   :host #duct/env "POD_NAME"
+   :version #duct/env "APP_VERSION"}
+
+  :duct.handler/root
+  {:middleware ^:distinct [#ig/ref :akvo-devops-stats.util.monitoring/middleware]}
+
+  :duct.migrator/ragtime {:database #ig/ref :devops/db-no-stats
+                          :migrations ^:replace #ig/ref :akvo-devops-stats.util.db/migration}
+  :akvo-devops-stats.util.db/migration {}
+
+  [:duct.database.sql/hikaricp :devops/db-no-stats]
+  {:idle-timeout 300000
+   :connection-timeout 30000
+   :socket-timeout 10
+   :connect-timeout 5
+   :login-timeout 10
+   :minimum-idle 1
+   :maximum-pool-size 5
+   :pool-name "db-pool"
+   :logger false
+   :jdbc-url #duct/env "DEVOPSSTATS_DATABASE_URL"}
+
+  [:akvo-devops-stats.util.monitoring/hikaricp :devops/db]
+  {:hikari-cp #ig/ref :devops/db-no-stats
+   :metrics-collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
+
+  ;:akvo-devops-stats.cron-jobs/start-cron {:db #ig/ref :devops/db
+  ;                                         :metrics-collector #ig/ref :akvo-devops-stats.util.monitoring/collector}
+  }
+
+ :duct.profile/dev
+ {:duct.logger/timbre
+  {:appenders {:spit #ig/ref :duct.logger.timbre/spit
+               :brief #ig/ref :duct.logger.timbre/brief
+               :sentry #ig/ref :akvo-devops-stats.util.monitoring/sentry-logger}}}
+ :duct.profile/local #duct/include "local"
+ :duct.profile/prod
+ {:duct.logger/timbre
+  {:appenders {:sentry #ig/ref :akvo-devops-stats.util.monitoring/sentry-logger
+               :out #ig/ref :duct.logger.timbre/println}}}
+
+ :duct.module/logging {}
+ :duct.module.web/api
+ {}
+ :duct.module/sql
+ {}}

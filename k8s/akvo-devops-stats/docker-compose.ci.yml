@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+  devopsstats:
+    environment:
+      - WAIT_FOR_DEPS=true
+      - NREPL_BIND_HOST=0.0.0.0
+    volumes:
+      - ./backend/dev:/app/dev
+    image: "eu.gcr.io/${PROJECT_NAME}/akvo-devopsstats:$TRAVIS_COMMIT"
+
+  tests:
+    image: akvo-devopsstats-dev:develop
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+      - ~/.lein:/root/.lein
+    depends_on:
+      - authz
+    command: "true"
+    environment:
+      - CI_ENV=true
+      - DEVOPSSTATS_DATABASE_URL=jdbc:postgresql://postgres/devopsstatsdb?user=devopsstatsdbuser&password=xxxxpasswd

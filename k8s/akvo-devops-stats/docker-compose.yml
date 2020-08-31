@@ -1,0 +1,13 @@
+version: "3"
+services:
+  postgres:
+    build: postgres
+  devopsstats:
+    environment:
+      - DEVOPSSTATS_DATABASE_URL=jdbc:postgresql://postgres/devopsstatsdb?user=devopsstatsdbuser&password=xxxxpasswd
+      - SENTRY_DSN=http://a-sentry-key:a-sentry-secret@wiremock-proxy:8080/sentry/213123
+  wiremock-proxy:
+    image: rodolpheche/wiremock:2.16.0-alpine
+    volumes:
+      - ./wiremock:/etc/wiremock/files
+    command: --root-dir /etc/wiremock/files --no-request-journal --verbose

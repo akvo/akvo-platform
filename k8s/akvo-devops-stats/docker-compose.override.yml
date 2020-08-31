@@ -1,0 +1,23 @@
+version: "3"
+services:
+  postgres:
+    ports:
+    - "5432:5432"
+  devopsstats:
+    build:
+      context: backend
+      dockerfile: dev/Dockerfile-dev
+    environment:
+      - SKIP_METRICS_REGISTRATION=true
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+      - ~/.lein:/root/.lein
+      - ~/.kube/config:/root/.kube/config
+    ports:
+      - "47480:47480"
+      - "3000:3000"
+      - "5005:5005"
+  wiremock-proxy:
+    ports:
+      - 8081:8080
