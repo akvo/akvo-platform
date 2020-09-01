@@ -1,6 +1,6 @@
 (ns akvo-devops-stats.util.kubernetes
   (:require [clojure.string :as str])
-  (:import (io.kubernetes.client.util KubeConfig ClientBuilder)
+  (:import (io.kubernetes.client.util KubeConfig ClientBuilder Config)
            (com.google.auth.oauth2 GoogleCredentials)
            (io.kubernetes.client.openapi.apis CoreV1Api)
            (java.text SimpleDateFormat)
@@ -12,10 +12,12 @@
 ;(GoogleCredentials/getApplicationDefault)
 ;; when running externally make sure that kubectx is production
 (defn get-lumen-flips []
-  (let [client (.build (ClientBuilder/kubeconfig
-                         (KubeConfig/loadKubeConfig (clojure.java.io/reader "/root/.kube/config"))))
+  (let [client (if (System/getenv "EXTERNAL_KUBE")
+                 (.build (ClientBuilder/kubeconfig
+                           (KubeConfig/loadKubeConfig (clojure.java.io/reader "/root/.kube/config"))))
+                 (Config/defaultClient))
         api (CoreV1Api. client)
-        config-maps (.listNamespacedConfigMap api "default" "false" false nil "" "" (int 10) nil (int 100) false)]
+        config-maps (.listNamespacedConfigMap api "default" "false" false nil "" "type=flip" (int 1000) nil (int 100) false)]
     (->>
       (.getItems config-maps)
       (filter
