@@ -53,3 +53,7 @@
     (.cancel cron-task true))
   (when cron-thread
     (.shutdownNow cron-thread)))
+
+(comment
+  (commits/collect-all-new-commits (:spec (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])) projects/projects)
+  (collect-data {:db (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])}))

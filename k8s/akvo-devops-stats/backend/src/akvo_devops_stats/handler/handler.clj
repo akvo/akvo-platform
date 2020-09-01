@@ -57,4 +57,6 @@
                  (str/join "\n")))})))
 
 (comment
-  (clj-http.client/get "http://localhost:3000/devopsstats/releases"))
+  (clj-http.client/get "http://localhost:3000/devopsstats/releases")
+  (clj-http.client/get "http://localhost:3000/devopsstats/commits")
+  )

@@ -86,6 +86,6 @@
     (let [initial-promotion-to-fetch (or
                                        (:name (get-last-promotion-for-repository db project))
                                        (:initial-promotion-exclusive project))]
-      (save-promotions db (fetch-all-promotions-up-to project initial-promotion-to-fetch))
+      (save-promotions db (doall (fetch-all-promotions-up-to project initial-promotion-to-fetch)))
       (let [build-system (if (:semaphoreci-project-id project) semaphoreci/fetch-up-to travis/fetch-up-to)]
-        (update-promotions-with-build-status db (build-system project initial-promotion-to-fetch))))))
+        (update-promotions-with-build-status db (doall (build-system project initial-promotion-to-fetch)))))))

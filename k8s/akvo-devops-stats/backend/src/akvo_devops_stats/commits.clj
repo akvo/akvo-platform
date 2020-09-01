@@ -105,44 +105,8 @@
 
 (defn collect-all-new-commits [db projects]
   (doseq [project projects]
-    (let [commits (fetch-all-commits-up-to project
-                    (or
-                      (:sha (last-commit-for-repo db project))
-                      (:initial-commit-exclusive project)))]
+    (let [commits (doall (fetch-all-commits-up-to project
+                           (or
+                             (:sha (last-commit-for-repo db project))
+                             (:initial-commit-exclusive project))))]
       (save-commits db commits))))
-
-(comment
-
-  (require '[clojure.contrib.humanize])
-
-  (let [all (->>
-              akvo-devops-stats.flips/projects
-              (mapcat (fn [{:keys [release-fn] :as project}]
-                        (let [commits (get-commits-for-repo (dev/local-db) project)
-                              releases (release-fn (dev/local-db) project)]
-                          (->>
-                            (find-deploy-times releases commits)
-                            (map (fn [{:keys [release-date authored-date] :as commit}]
-                                   (-> commit
-                                     ;(select-keys [:repository :release-date :authored-date])
-                                     (assoc :team (get akvo-devops-stats.flips/project->team (:repository commit)))
-                                     (assoc :lead-time-minutes (int (/ (- (.getTime release-date) (.getTime authored-date)) 1000 60)))
-                                     (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") release-date))
-                                     (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") release-date))))))))))]
-    (->>
-      all
-      ;(map (fn [x] (assoc x :lt (clojure.contrib.humanize/duration (:lead-time x)))))
-      ;(filter (fn [x] (> (:lead-time x) (* 1000 60 60 24 30))))
-      ;(clojure.pprint/print-table)
-      (map (fn [x]
-             (assert (pos? (:lead-time-minutes x)))
-             (when (> (:lead-time-minutes x) (* 60 24 30))
-               (println (clojure.contrib.humanize/duration (* (:lead-time-minutes x) 60 1000)))
-               (println x))
-             (str/join "," (vals x))))
-      (cons (str/join "," (map name (keys (first all)))))
-      (str/join "\n")
-      (spit "commits.csv")
-      ))
-
-  )

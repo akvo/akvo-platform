@@ -47,34 +47,9 @@
                          (:name (get-last-flip-for-repo db flow))
                          (:initial-flip-exclusive flow))]
       (upsert-flips db
-        (semaphoreci/fetch-up-to (assoc flow :tag-prefix "flip") initial-flip)))))
+        (doall (semaphoreci/fetch-up-to (assoc flow :tag-prefix "flip") initial-flip))))))
 
 (defn collect-all-new-flips [db projects]
   ;; flow flips
   (collect-Flow-flips db projects)
   (collect-Lumen-flips db))
-
-(comment
-
-  ;; generate all releases
-  (let [all (->>
-              projects
-              (mapcat (fn [{:keys [release-fn] :as project}]
-                        (->>
-                          (sort-by :name (release-fn (dev/local-db) project))
-                          (map (fn [x]
-                                 (-> x
-                                   (select-keys [:repository :name :reason :sha :finish-date])
-                                   (assoc :team (get project->team (:repository x)))
-                                   (update :reason (fn [reason] (let [reason (and reason (str/trim reason))]
-                                                                  (get #{"FIX_RELEASE" "REGULAR_RELEASE"} reason "UNKNOWN"))))
-                                   (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") (:finish-date x)))
-                                   (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") (:finish-date x))))))))))]
-    (->>
-      all
-      (map (fn [x] (str/join "," (vals x))))
-      (cons (str/join "," (map name (keys (first all)))))
-      (str/join "\n")
-      (spit "rsr-releases.csv")
-      ))
-  )
