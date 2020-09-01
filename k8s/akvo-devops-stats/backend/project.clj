@@ -26,7 +26,8 @@
                  [com.zaxxer/HikariCP "3.3.1"]
                  [raven-clj "1.5.2"]
                  [io.kubernetes/client-java "9.0.0"]
-                 [clojure-humanize "0.2.2"]]
+                 [clojure-humanize "0.2.2"]
+                 [com.google.cloud/google-cloud-bigquery "1.117.1"]]
   :plugins [[duct/lein-duct "0.12.1"]
             [lein-eftest "0.5.8"]]
   :main ^:skip-aot akvo-devops-stats.main
