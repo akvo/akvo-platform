@@ -4,6 +4,7 @@ services:
     build: postgres
   devopsstats:
     environment:
+      - EXTERNAL_KUBE=yes
       - DEVOPSSTATS_DATABASE_URL=jdbc:postgresql://postgres/devopsstatsdb?user=devopsstatsdbuser&password=xxxxpasswd
       - SENTRY_DSN=http://a-sentry-key:a-sentry-secret@wiremock-proxy:8080/sentry/213123
   wiremock-proxy:
