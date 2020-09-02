@@ -8,8 +8,8 @@ WITH t1 AS
   httpRequest.requestMethod
 from akvoflow_http_logs.requests
 where httpRequest.status != 503
-and _PARTITIONTIME >= TIMESTAMP "2020-04-01"
-and _PARTITIONTIME < TIMESTAMP "2020-04-02"
+and _PARTITIONTIME >= TIMESTAMP "$from-date$"
+and _PARTITIONTIME < TIMESTAMP "$to-date$"
 and httpRequest.requestUrl not like '%/healthz'
 and httpRequest.userAgent not like 'GoogleStackdriv%'
 and httpRequest.userAgent not like 'Prometh%'
