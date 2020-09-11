@@ -3,6 +3,7 @@
             [integrant.core :as ig]
             [clojure.string :as str]
             [akvo-devops-stats.projects :as projects]
+            [akvo-devops-stats.uptime :as uptime]
             [akvo-devops-stats.commits :as commits])
   (:import (java.text SimpleDateFormat)))
 
@@ -37,11 +38,20 @@
                          (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") (:finish-date x)))
                          (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") (:finish-date x)))))))))))
 
+
+(defn prepare-uptime [all]
+  (->>
+    all
+    (map (fn [x]
+           (update
+             x :service
+             str/replace ".akvo.org" "")))))
+
 (defn to-csv [c]
   (->>
     c
     (map (fn [x] (str/join "," (vals x))))
-    (cons (str/join "," (map name (keys c))))
+    (cons (str/join "," (map name (keys (first c)))))
     (str/join "\n")))
 
 (defmethod ig/init-key :akvo-devops-stats.handler/handler [_ {:keys [db]}]
@@ -49,6 +59,12 @@
     (GET "/commits" []
       {:body (let [db (:spec db)]
                (to-csv (prepare-commits db)))})
+    (GET "/uptime" []
+      {:body (let [db (:spec db)]
+               (to-csv (prepare-uptime (uptime/stats-per-week db))))})
+    (GET "/uptime-last-14-days" []
+      {:body (let [db (:spec db)]
+               (to-csv (prepare-uptime (uptime/daily-stats-last-X-days db 14))))})
     (GET "/releases" []
       {:body (let [db (:spec db)]
                (to-csv (prepare-releases db)))})))
@@ -56,4 +72,5 @@
 (comment
   (clj-http.client/get "http://localhost:3000/devopsstats/releases")
   (clj-http.client/get "http://localhost:3000/devopsstats/commits")
+  (clj-http.client/get "http://localhost:3000/devopsstats/uptime-last-14-days")
   )
