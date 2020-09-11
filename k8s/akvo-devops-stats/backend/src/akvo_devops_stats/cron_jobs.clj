@@ -32,11 +32,11 @@
   (assert db)
   (assert metrics-collector)
   (timbre/info "Starting cron job to collect stats")
-  #_(let [cron-thread (Executors/newScheduledThreadPool 1)
+  (let [cron-thread (Executors/newScheduledThreadPool 1)
         cron-task (.scheduleWithFixedDelay cron-thread
                     (fn []
                       (log-and-ignore-error metrics-collector
-                        (collect-data config))) 0 23 TimeUnit/HOURS)]
+                        (collect-data config))) 0 24 TimeUnit/HOURS)]
     (assoc
       config
       :cron-task cron-task
@@ -52,6 +52,8 @@
 (comment
   (def db (:spec (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])))
   (commits/collect-all-new-commits db projects/projects)
+  (promotions/collect-all-new-promotions db [(last projects/projects)])
+  (flips/collect-all-new-flips db projects/projects)
   (collect-data {:db (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])})
   (uptime/collect-all-uptime-stats db)
 

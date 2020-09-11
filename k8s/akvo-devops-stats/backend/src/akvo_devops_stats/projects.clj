@@ -30,15 +30,6 @@
     :team "Flumen"
     :release-fn #'promotions/get-promotions}
 
-   {:repository "akvo-lumen"
-    :tag-prefix "promote"
-    :semaphoreci-project-id "0f114080-6c03-4963-bb26-c43769f8580a"
-    :initial-promotion-exclusive "promote-20200507-132322"
-    :initial-commit-exclusive "086e95048b1042646fd1a2240cfa481733db8d1a"
-    :trunk-branch "master"
-    :team "Flumen"
-    :release-fn #'flips/get-releases}
-
    {:repository "akvo-flow"
     :tag-prefix "promote"
     :semaphoreci-project-id "9285d79e-251f-4aa7-ba38-cc31655cb401"
@@ -49,6 +40,17 @@
     :trunk-branch "master"
     :team "Flumen"
     :release-fn #'flips/get-releases}
+
+   {:repository "akvo-lumen"
+    :tag-prefix "promote"
+    :semaphoreci-project-id "0f114080-6c03-4963-bb26-c43769f8580a"
+    :initial-promotion-exclusive "promote-20200507-132322"
+    :initial-commit-exclusive "086e95048b1042646fd1a2240cfa481733db8d1a"
+    :trunk-branch "master"
+    :team "Flumen"
+    :release-fn #'flips/get-releases}
+
+
 
    ;{:repo-name "akvo-unified-log" :tag-prefix "promote" :semaphoreci-project-id "0f114080-6c03-4963-bb26-c43769f8580a"}
    ;{:repo-name "akvo-authorization" :tag-prefix "promote" :semaphoreci-project-id "0f114080-6c03-4963-bb26-c43769f8580a"}
