@@ -4,16 +4,10 @@
     [akvo-devops-stats.projects :as projects]
     [akvo-devops-stats.flips :as flips]
     [akvo-devops-stats.commits :as commits]
-    [clojure.java.jdbc :as jdbc]
-    [clojure.string :as str]
     [integrant.core :as ig]
-    [jsonista.core :as json]
-    [clojure.spec.alpha :as s]
-    [com.climate.claypoole :as cp]
-    [hugsql.core :as hugsql]
     [taoensso.timbre :as timbre]
-    [iapetos.core :as prometheus])
-  (:import (java.util.concurrent Executors TimeUnit)))
+    [iapetos.core :as prometheus]
+    [akvo-devops-stats.uptime :as uptime]))
 
 (defmacro log-and-ignore-error [metrics-collector & body]
   `(try
@@ -31,7 +25,8 @@
   (let [db (:spec db)]
     (promotions/collect-all-new-promotions db projects/projects)
     (commits/collect-all-new-commits db projects/projects)
-    (flips/collect-all-new-flips db projects/projects)))
+    (flips/collect-all-new-flips db projects/projects)
+    (uptime/collect-all-uptime-stats db)))
 
 (defmethod ig/init-key ::start-cron [_ {:keys [db metrics-collector] :as config}]
   (assert db)
@@ -55,5 +50,9 @@
     (.shutdownNow cron-thread)))
 
 (comment
-  (commits/collect-all-new-commits (:spec (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])) projects/projects)
-  (collect-data {:db (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])}))
+  (def db (:spec (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])))
+  (commits/collect-all-new-commits db projects/projects)
+  (collect-data {:db (get @akvo-devops-stats.main/system-atom [:akvo-devops-stats.util.monitoring/hikaricp :devops/db])})
+  (uptime/collect-all-uptime-stats db)
+
+  )

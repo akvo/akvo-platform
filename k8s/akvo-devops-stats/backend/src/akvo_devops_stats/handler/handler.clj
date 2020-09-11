@@ -73,4 +73,6 @@
   (clj-http.client/get "http://localhost:3000/devopsstats/releases")
   (clj-http.client/get "http://localhost:3000/devopsstats/commits")
   (clj-http.client/get "http://localhost:3000/devopsstats/uptime-last-14-days")
+  (clj-http.client/get "http://localhost:3000/devopsstats/uptime")
+  (clj-http.client/get "http://akvo-devopsstats/devopsstats/uptime")
   )
