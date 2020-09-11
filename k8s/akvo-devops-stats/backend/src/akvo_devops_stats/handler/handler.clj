@@ -37,24 +37,21 @@
                          (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") (:finish-date x)))
                          (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") (:finish-date x)))))))))))
 
+(defn to-csv [c]
+  (->>
+    c
+    (map (fn [x] (str/join "," (vals x))))
+    (cons (str/join "," (map name (keys c))))
+    (str/join "\n")))
+
 (defmethod ig/init-key :akvo-devops-stats.handler/handler [_ {:keys [db]}]
   (context "/devopsstats" []
     (GET "/commits" []
-      {:body (let [db (:spec db)
-                   all (prepare-commits db)]
-               (->>
-                 all
-                 (map (fn [x] (str/join "," (vals x))))
-                 (cons (str/join "," (map name (keys (first all)))))
-                 (str/join "\n")))})
+      {:body (let [db (:spec db)]
+               (to-csv (prepare-commits db)))})
     (GET "/releases" []
-      {:body (let [db (:spec db)
-                   all (prepare-releases db)]
-               (->>
-                 all
-                 (map (fn [x] (str/join "," (vals x))))
-                 (cons (str/join "," (map name (keys (first all)))))
-                 (str/join "\n")))})))
+      {:body (let [db (:spec db)]
+               (to-csv (prepare-releases db)))})))
 
 (comment
   (clj-http.client/get "http://localhost:3000/devopsstats/releases")
