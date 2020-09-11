@@ -16,12 +16,14 @@
                 (->>
                   (commits/find-deploy-times releases commits)
                   (map (fn [{:keys [release-date authored-date] :as commit}]
-                         (-> commit
-                           (select-keys [:repository :release-date :authored-date])
-                           (assoc :team (get projects/project->team (:repository commit)))
-                           (assoc :lead-time-minutes (int (/ (- (.getTime release-date) (.getTime authored-date)) 1000 60)))
-                           (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") release-date))
-                           (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") release-date)))))))))))
+                         (let [lead-time-minutes (int (/ (- (.getTime release-date) (.getTime authored-date)) 1000 60))]
+                           (-> commit
+                             (select-keys [:repository :release-date :authored-date])
+                             (assoc :team (get projects/project->team (:repository commit)))
+                             (assoc :lead-time-minutes lead-time-minutes)
+                             (assoc :lead-time-days (/ lead-time-minutes 60.0 24))
+                             (assoc :year-week (.format (SimpleDateFormat. "yyyy-ww") release-date))
+                             (assoc :year-month (.format (SimpleDateFormat. "yyyy-MM") release-date))))))))))))
 
 (defn prepare-releases [db]
   (->>
@@ -74,5 +76,5 @@
   (clj-http.client/get "http://localhost:3000/devopsstats/commits")
   (clj-http.client/get "http://localhost:3000/devopsstats/uptime-last-14-days")
   (clj-http.client/get "http://localhost:3000/devopsstats/uptime")
-  (clj-http.client/get "http://akvo-devopsstats/devopsstats/uptime")
+  (clj-http.client/get "http://akvo-devopsstats/devopsstats/releases")
   )
