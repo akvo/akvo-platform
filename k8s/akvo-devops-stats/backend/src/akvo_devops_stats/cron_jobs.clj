@@ -7,7 +7,8 @@
     [integrant.core :as ig]
     [taoensso.timbre :as timbre]
     [iapetos.core :as prometheus]
-    [akvo-devops-stats.uptime :as uptime]))
+    [akvo-devops-stats.uptime :as uptime])
+  (:import (java.util.concurrent Executors TimeUnit)))
 
 (defmacro log-and-ignore-error [metrics-collector & body]
   `(try
