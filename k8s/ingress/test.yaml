@@ -111,6 +111,12 @@ spec:
         - backend:
             serviceName: data-portals
             servicePort: 80
+    - host: "exact.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-exact
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
