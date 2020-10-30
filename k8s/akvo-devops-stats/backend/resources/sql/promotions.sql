@@ -17,3 +17,6 @@ SELECT * FROM promotions where repository = :repository ORDER BY name DESC
 
 -- :name get-last-promotion-for-repository :? :1
 SELECT * FROM promotions where repository = :repository ORDER BY name DESC LIMIT 1
+
+-- :name get-last-promotion-with-build-status-for-repository :? :1
+SELECT * FROM promotions where repository = :repository AND finish_date IS NOT NULL ORDER BY name DESC LIMIT 1
