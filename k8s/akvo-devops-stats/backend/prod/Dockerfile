@@ -1,4 +1,4 @@
-FROM openjdk:11.0.3-jre-slim
+FROM openjdk:11.0.9-jre-slim
 
 RUN set -ex; apt-get update && \
     mkdir -p /usr/share/man/man7/ && \
