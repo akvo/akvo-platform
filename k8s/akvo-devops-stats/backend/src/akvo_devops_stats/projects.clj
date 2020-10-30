@@ -18,6 +18,7 @@
     :tag-prefix "promote"
     :initial-promotion-exclusive "promote-20200501-161837"
     :initial-commit-exclusive "ed896e336331089b7311e1a550e31a832ad59b1e"
+    :semaphoreci-project-id "69f2113b-38c1-4de4-9b0f-691163c2c016"
     :trunk-branch "develop"
     :team "Flumen"
     :release-fn #'promotions/get-promotions}
@@ -26,6 +27,7 @@
     :tag-prefix "promote"
     :initial-promotion-exclusive "promote-20200320-113228"
     :initial-commit-exclusive "3ff0425a8444522e6188c7dd27791ec16989a033"
+    :semaphoreci-project-id "627ef9d1-99d3-4448-b54d-954cbbcd2945"
     :trunk-branch "develop"
     :team "Flumen"
     :release-fn #'promotions/get-promotions}
