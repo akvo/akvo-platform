@@ -49,13 +49,15 @@
 
  :duct.profile/dev
  {:duct.logger/timbre
-  {:appenders {:spit #ig/ref :duct.logger.timbre/spit
+  {:set-root-config? true
+   :appenders {:spit #ig/ref :duct.logger.timbre/spit
                :brief #ig/ref :duct.logger.timbre/brief
                :sentry #ig/ref :akvo-devops-stats.util.monitoring/sentry-logger}}}
  :duct.profile/local #duct/include "local"
  :duct.profile/prod
  {:duct.logger/timbre
-  {:appenders {:sentry #ig/ref :akvo-devops-stats.util.monitoring/sentry-logger
+  {:set-root-config? true
+   :appenders {:sentry #ig/ref :akvo-devops-stats.util.monitoring/sentry-logger
                :out #ig/ref :duct.logger.timbre/println}}}
 
  :duct.module/logging {}
