@@ -27,14 +27,10 @@
     (prometheus/collector-registry)
     (jvm/initialize)
     (prometheus/register
-      (prometheus/gauge :job/last-run {:description "Timestamp of last job run"
-                                         :labels [:db-name]})
-      (prometheus/gauge :job/last-success {:description "Timestamp of last job  run without exceptions"
-                                             :labels [:db-name]})
-      (prometheus/gauge :job/last-failure {:description "Timestamp of last job run and fail"
-                                             :labels [:db-name]})
-      (prometheus/gauge :job/last-start {:description "Timestamp of last job run start time"
-                                           :labels [:db-name]})
+      (prometheus/gauge :job/last-run {:description "Timestamp of last job run"})
+      (prometheus/gauge :job/last-success {:description "Timestamp of last job  run without exceptions"})
+      (prometheus/gauge :job/last-failure {:description "Timestamp of last job run and fail"})
+      (prometheus/gauge :job/last-start {:description "Timestamp of last job run start time"})
       (prometheus/histogram
         :job/duration
         {:description "Time taken to run a job"
