@@ -17,7 +17,7 @@
          (prometheus/with-timestamps {:last-run (~metrics-collector :job/last-run metrics-labels#)
                                       :last-success (~metrics-collector :job/last-success metrics-labels#)
                                       :last-failure (~metrics-collector :job/last-failure metrics-labels#)}
-           (prometheus/set ~metrics-collector :job/last-start metrics-labels# (System/currentTimeMillis))
+           (prometheus/set ~metrics-collector :job/last-start metrics-labels# (/ (System/currentTimeMillis) 1000.0))
            ~@body)))
      (catch Throwable t#
        (timbre/error t#))))
