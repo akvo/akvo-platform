@@ -18,7 +18,7 @@ github_fetch() {
 }
 
 download_repos() {
-    github_fetch https://api.github.com/orgs/akvo/repos?per_page=100 > "repos.json"
+    github_fetch "https://api.github.com/orgs/akvo/repos?per_page=100&sort=updated" > "repos.json"
 }
 
 create_repos_list() {
