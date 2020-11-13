@@ -22,7 +22,7 @@ download_repos() {
 }
 
 create_repos_list() {
-    repos="$(jq -r '.[].name' repos.json)"
+    repos="$(jq -r '.[] | select(.archived == false) | .name' repos.json)"
     echo "$repos" > "repos.txt"
 }
 
