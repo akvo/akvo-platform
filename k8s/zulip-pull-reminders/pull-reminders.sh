@@ -42,8 +42,8 @@ list_open_pulls_for_repo() {
     open_prs="$(jq -r '.[] | [.title, (.requested_reviewers | map(.login) | join(", ")), .html_url]  | join(" ")' pulls-$1.json)"
     if [ -n "$open_prs" ]
     then
-       printf "\n\n### $1\n"
-       printf "$open_prs"
+       printf "\n\n### %s\n" "${1}"
+       printf "%s" "${open_prs}"
     fi
 }
 
