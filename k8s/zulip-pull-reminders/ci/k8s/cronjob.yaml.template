@@ -1,0 +1,43 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: zulip-pull-reminders
+spec:
+  schedule: "0 8 * * 1-5"
+  startingDeadlineSeconds: 600 # it is ok to start the job 10 minutes late
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    metadata:
+      labels:
+        cronjob: zulip-pull-reminders # <-- for monitoring
+    spec:
+      # activeDeadlineSeconds: 900 # Fail job if it takes more than 15 mins
+      template:
+        metadata:
+          labels:
+            cronjob: zulip-pull-reminders
+        spec:
+          containers:
+          - name: zulip-pull-reminders
+            image: eu.gcr.io/akvo-lumen/zulip-pull-reminders:${TRAVIS_COMMIT}
+            resources:
+              requests:
+                cpu: "50m"
+                memory: "256Mi"
+              limits:
+                cpu: "200m"
+                memory: "256Mi"
+            env:
+              - name: GITHUB_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: zulip-pull-reminders
+                    key: github-token
+              - name: ZULIP_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: zulip-pull-reminders
+                    key: zulip-token
+          restartPolicy: Never
