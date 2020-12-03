@@ -57,12 +57,13 @@ list_open_pulls_for_all_repos() {
 }
 
 post_to_zulip(){
-    curl -X POST https://akvo.zulipchat.com/api/v1/messages \
-         -u "${ZULIP_TOKEN}" \
-         -d 'type=stream' \
-         -d 'to=bot-test' \
-         -d 'topic=Pull reminder' \
-         -d "content=$1"
+    curl --silent --show-error --fail \
+        --request POST https://akvo.zulipchat.com/api/v1/messages \
+        --user "${ZULIP_TOKEN}" \
+        --data 'type=stream' \
+        --data 'to=bot-test' \
+        --data 'topic=Pull reminder' \
+        --data "content=$1"
 }
 
 github_username_to_zulip_name() {
