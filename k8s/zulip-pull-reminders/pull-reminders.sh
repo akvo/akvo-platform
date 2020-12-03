@@ -9,7 +9,7 @@ mkdir -p /tmp/akvo/github-pull-reminders
 github_fetch() {
     HEADERS=()
     HEADERS+=("-HAccept: application/vnd.github.v3+json")
-    if [[ -n "${GITHUB_TOKEN}" ]]
+    if [[ -n "${GITHUB_TOKEN:-}" ]]
     then
        HEADERS+=("-HAuthorization: token ${GITHUB_TOKEN}")
     fi
