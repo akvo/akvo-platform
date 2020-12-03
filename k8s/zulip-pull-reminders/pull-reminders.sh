@@ -57,6 +57,7 @@ list_open_pulls_for_all_repos() {
 }
 
 post_to_zulip(){
+    echo "${1}"
     curl --silent --show-error --fail \
         --request POST https://akvo.zulipchat.com/api/v1/messages \
         --user "${ZULIP_TOKEN}" \
