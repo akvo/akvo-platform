@@ -40,7 +40,7 @@ download_open_pulls_for_all_repos() {
 
 list_open_pulls_for_repo() {
     open_prs="$(jq -r '.[] | [.title, (.requested_reviewers | map(.login) | join(", ")), .html_url]  | join(" ")' pulls-$1.json)"
-    if [ ! -z "$open_prs" ]
+    if [ -n "$open_prs" ]
     then
        printf "\n\n### $1\n"
        printf "$open_prs"
