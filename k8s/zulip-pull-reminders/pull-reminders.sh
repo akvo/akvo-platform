@@ -12,8 +12,10 @@ github_fetch() {
     if [[ -n "${GITHUB_TOKEN:-}" ]]
     then
        HEADERS+=("-HAuthorization: token ${GITHUB_TOKEN}")
+       >&2 echo "Fetching data (using GH token) from ${1} ..."
+    else
+        >&2 echo "Fetching data from ${1} ..."
     fi
-    >&2 echo "Fetching data from ${1} ..."
     curl --silent --show-error --fail "${HEADERS[@]}" "$1"
 }
 
