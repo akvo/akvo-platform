@@ -48,10 +48,10 @@ list_open_pulls_for_repo() {
 }
 
 list_open_pulls_for_all_repos() {
-    for repo  in $(cat repos.txt)
+    while read -r repo
     do
         list_open_pulls_for_repo "$repo"
-    done
+    done < repos.txt
 }
 
 post_to_zulip(){
