@@ -39,11 +39,29 @@ download_open_pulls_for_all_repos() {
 }
 
 list_open_pulls_for_repo() {
-    open_prs="$(jq -r '.[] | [.title, (.requested_reviewers | map(.login) | join(", ")), .html_url]  | join(" ")' pulls-$1.json)"
-    if [ -n "$open_prs" ]
+    open_prs="$(jq -r '.[] | [(.requested_reviewers | map(.login) | join(";")), .title, .html_url]  | join("\t")' pulls-$1.json)"
+    if [[ -n "$open_prs" ]]
     then
-       printf "\n\n### %s\n" "${1}"
-       printf "%s" "${open_prs}"
+       echo -e "\n\n### ${1}\n"
+       while read -r pr
+       do
+           columns=$(awk -F"\t" '{print NF}' <<< "${pr}")
+           if [[ $columns = 3 ]] ; then
+              pr_text=$(awk -F"\t" '{$1=""; print $0}' <<< "${pr}")
+              devs=$(awk -F"\t" '{print $1}' <<< "${pr}" | tr ";" " ")
+              for dev in ${devs}
+              do
+                  zname=$(grep "^${dev}" github-to-zulip.txt | awk -F: '{print $2}' || true)
+                  if [[ -n "${zname}" ]]
+                  then
+                     devs=${devs/$dev/"@**${zname}**"}
+                  fi
+              done
+              echo "${devs}: ${pr_text}"
+           else
+               echo "${pr}"
+           fi
+       done <<< "${open_prs}"
     fi
 }
 
