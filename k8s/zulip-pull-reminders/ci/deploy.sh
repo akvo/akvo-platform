@@ -32,7 +32,7 @@ gcloud container clusters get-credentials test
 
 log Pushing images
 gcloud auth configure-docker
-docker push eu.gcr.io/${PROJECT_NAME}/zulip-pull-reminders
+docker push "eu.gcr.io/${PROJECT_NAME}/zulip-pull-reminders:$TRAVIS_COMMIT"
 
 sed -e "s/\${TRAVIS_COMMIT}/${TRAVIS_COMMIT:-local}/" ci/k8s/cronjob.yaml.template > cronjob.yaml.donotcommit
 
