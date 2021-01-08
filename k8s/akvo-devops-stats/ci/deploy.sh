@@ -34,7 +34,7 @@ gcloud container clusters get-credentials production
 
 log Pushing images
 gcloud auth configure-docker
-docker push eu.gcr.io/${PROJECT_NAME}/akvo-devopsstats
+docker push "eu.gcr.io/${PROJECT_NAME}/akvo-devopsstats:$TRAVIS_COMMIT"
 
 log Deploying
 
