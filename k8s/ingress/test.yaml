@@ -117,6 +117,12 @@ spec:
         - backend:
             serviceName: akvo-exact
             servicePort: 80
+    - host: "unep-gpml.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: unep-gpml
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
