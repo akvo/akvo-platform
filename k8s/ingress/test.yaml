@@ -111,6 +111,24 @@ spec:
         - backend:
             serviceName: data-portals
             servicePort: 80
+    - host: "api.portals.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: data-portals
+            servicePort: 80
+    - host: "mali.portals.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: data-portals
+            servicePort: 80
+    - host: "sierra-leone.portals.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: data-portals
+            servicePort: 80
     - host: "exact.akvotest.org"
       http:
         paths:
