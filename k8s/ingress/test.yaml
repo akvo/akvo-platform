@@ -11,6 +11,7 @@ spec:
   - hosts:
     - "*.akvotest.org"
     - "*.akvoflow.org"
+    - "*.portals.akvoflow.org"
     - "rsr.test.akvo.org"
     - "*.akvoapp.org"
     secretName: tls-cert-manager
