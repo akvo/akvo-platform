@@ -98,6 +98,12 @@ spec:
           - backend:
               serviceName: unep-gpml
               servicePort: 80
+    - host: "digital.gpmarinelitter.org"
+      http:
+        paths:
+          - backend:
+              serviceName: unep-gpml
+              servicePort: 80
     - host: "*.akvolumen.org"
       http:
         paths:
