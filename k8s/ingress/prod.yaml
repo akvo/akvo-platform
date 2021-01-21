@@ -92,6 +92,12 @@ spec:
           - backend:
               serviceName: grafana
               servicePort: 80
+    - host: "unep-gpml.akvo.org"
+      http:
+        paths:
+          - backend:
+              serviceName: unep-gpml
+              servicePort: 80
     - host: "*.akvolumen.org"
       http:
         paths:
