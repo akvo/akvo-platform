@@ -142,6 +142,12 @@ spec:
         - backend:
             serviceName: unep-gpml
             servicePort: 80
+    - host: "hortinvest.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: hortinvest
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
