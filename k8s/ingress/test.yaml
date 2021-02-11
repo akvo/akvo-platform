@@ -12,6 +12,7 @@ spec:
     - "*.akvotest.org"
     - "*.akvoflow.org"
     - "*.portals.akvotest.org"
+    - "*.tc.akvotest.org"
     - "rsr.test.akvo.org"
     - "*.akvoapp.org"
     secretName: tls-cert-manager
@@ -75,6 +76,12 @@ spec:
         paths:
         - backend:
             serviceName: tech-consultancy-gateway
+            servicePort: 80
+    - host: "portfolio.tc.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: tech-consultancy-new-portfolio
             servicePort: 80
     - host: "metrics.akvotest.org"
       http:

@@ -10,7 +10,6 @@ spec:
   tls:
   - hosts:
     - "*.akvo.org"
-    - "*.tc.akvo.org"
     - "*.akvolumen.org"
     - "*.akvoapp.org"
     secretName: tls-cert-manager
@@ -116,10 +115,4 @@ spec:
         paths:
           - backend:
               serviceName: tech-consultancy-gateway
-              servicePort: 80
-    - host: "portfolio.tc.akvo.org"
-      http:
-        paths:
-          - backend:
-              serviceName: tech-consultancy-new-portfolio
               servicePort: 80
