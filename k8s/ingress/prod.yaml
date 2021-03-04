@@ -20,6 +20,12 @@ spec:
         - backend:
             serviceName: rsr
             servicePort: 80
+    - host: "unep.akvoapp.org"
+      http:
+        paths:
+        - backend:
+            serviceName: unep-gpml-redirect
+            servicePort: 80
     - host: "*.akvoapp.org"
       http:
         paths:
