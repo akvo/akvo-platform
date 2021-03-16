@@ -74,12 +74,6 @@ spec:
         - backend:
             serviceName: reportserver
             servicePort: 8080
-    - host: "authz.akvo.org"
-      http:
-        paths:
-          - backend:
-              serviceName: akvo-authz
-              servicePort: 80
     - host: "unilog-k8s.akvo.org"
       http:
         paths:
