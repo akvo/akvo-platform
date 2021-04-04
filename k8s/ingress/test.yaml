@@ -149,6 +149,12 @@ spec:
         - backend:
             serviceName: hortinvest
             servicePort: 80
+    - host: "openaid-nl.akvotest.org"
+      http:
+        paths:
+        - backend:
+            serviceName: openaid-nl
+            servicePort: 80
     - host: "*.akvotest.org"
       http:
         paths:
