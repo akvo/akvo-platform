@@ -22,12 +22,6 @@ spec:
         - backend:
             serviceName: rsr
             servicePort: 80
-    - host: "*.akvoapp.org"
-      http:
-        paths:
-        - backend:
-            serviceName: rsr
-            servicePort: 80
     - host: "flow-services.akvotest.org"
       http:
         paths:
