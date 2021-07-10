@@ -110,6 +110,12 @@ spec:
           - backend:
               serviceName: unep-gpml
               servicePort: 80
+    - host: "webform.akvo.org"
+      http:
+        paths:
+        - backend:
+            serviceName: akvo-webform
+            servicePort: 80
     - host: "*.akvolumen.org"
       http:
         paths:
